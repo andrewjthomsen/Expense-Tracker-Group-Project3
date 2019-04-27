@@ -171,23 +171,23 @@ body {
 }
 .btn-secondary,
 .btn-secondary:active {
-  background-color: #ff3366 !important;
-  border-color: #ff3366 !important;
-  color: #ffffff !important;
+  background-color: #fffc4b !important;
+  border-color: #fffc4b  !important;
+  color: black !important;
 }
 .btn-secondary:hover,
 .btn-secondary:focus,
 .btn-secondary.focus,
 .btn-secondary.active {
-  color: #ffffff !important;
-  background-color: #e50039 !important;
-  border-color: #e50039 !important;
+  color: #fffc4b !important;
+  background-color: black !important;
+  border-color: #fffc4b !important;
 }
 .btn-secondary.disabled,
 .btn-secondary:disabled {
-  color: #ffffff !important;
-  background-color: #e50039 !important;
-  border-color: #e50039 !important;
+  color: #fffc4b !important;
+  background-color: black !important;
+  border-color: #fffc4b !important;
 }
 .btn-info,
 .btn-info:active {
@@ -452,19 +452,19 @@ body {
   background-color: #333333 !important;
   border-color: #333333 !important;
 }
-.btn-white-outline,
-.btn-white-outline:active,
-.btn-white-outline.active {
+.btn-yellow-outline,
+.btn-yellow-outline:active,
+.btn-yellow-outline.active {
   background: none;
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #f7ed4a;
+  color:#ffee00;
 }
-.btn-white-outline:hover,
-.btn-white-outline:focus,
-.btn-white-outline.focus {
-  color: #333333;
-  background-color: #ffffff;
-  border-color: #ffffff;
+.btn-yellow-outline:hover,
+.btn-yellow-outline:focus,
+.btn-yellow-outline.focus {
+  color: #080606;
+  background-color: #f7ed4a;
+  border-color: #f7ed4a;
 }
 .text-primary {
   color: #149dcc !important;
@@ -1807,7 +1807,7 @@ body {
 .cid-roBPcDLpIU {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: #ffffff;
+  background-color: #313131;
 }
 .cid-roBPcDLpIU .carousel-item {
   justify-content: center;
@@ -1827,8 +1827,8 @@ body {
   top: 180px;
   padding: 10px;
   border-radius: 50%;
-  color: #585858;
-  background: #c8c6c6;
+  color: #fbff00;
+  background: #3b3b34;
   opacity: .5;
 }
 .cid-roBPcDLpIU .carousel-controls a:hover span {
@@ -1904,7 +1904,7 @@ body {
 }
 .cid-roBPa0AtTP .media-container-row .social-list .mbr-iconfont-social {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #fffb00;
 }
 .cid-roBPa0AtTP .media-container-row .social-list .soc-item {
   margin: 0 .5rem;
