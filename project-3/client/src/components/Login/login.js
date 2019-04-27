@@ -1,8 +1,9 @@
 import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
-import "./test/test.css";
-
+import "../../assets/additionalcss/css/signup.css"
+import "../../assets/additionalcss/css/mbr-additional.css"
+import "../../assets/theme/css/style.css"
 const Login = props => {
 
   return (
@@ -13,10 +14,10 @@ const Login = props => {
       <div className="main-agileinfo">
         <div className="agileits-top">
           <form action="/submit" method="post">
-            <input className="text" type="text" name="Username" placeholder="Username" required="" />
-            <input className="text email" type="email" name="email" placeholder="Email" required="" />
-            <input className="text" type="password" name="password" placeholder="Password" required="" />
-            <input className="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="" />
+            <input className="text" type="text" name="Username" placeholder={'UserName'} required="true" />
+            <input className="text email" type="email" name="email" placeholder={"Email"} required="true" />
+            <input className="text" type="password" name="password" placeholder={"Password"} required="true" />
+            <input className="text w3lpass" type="password" name="password" placeholder={"Confirm Password"} required="true" />
             <div className="wthree-text">
               <label className="anim">
                 <input type="checkbox" className="checkbox" required="" />
