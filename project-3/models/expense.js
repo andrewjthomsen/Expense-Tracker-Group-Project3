@@ -4,15 +4,17 @@ const expenseTrackerSchema = new mongoose.Schema({
     
     expense: [{
         createdAt: {
-            type: Date
+            type: Date,
+            required: true
         },
         amount: {
-            type: Number
+            type: Number,
+            required: true
         },
-        description: String
-
+        description: {
+            type: String
         }
-    ],
+    }],
     
     total_expense: {
         type: Number
