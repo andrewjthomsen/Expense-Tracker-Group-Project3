@@ -1,17 +1,20 @@
-import React from 'react';
-import "./assets/additionalcss/css/signup.css"
-import "./assets/additionalcss/css/mbr-additional.css"
+import React, { Component } from 'react';
 import Signup from './components/SignUp/signup';
+import NavBar from "./components/NavBar/index"; 
 
-function App() {
-  return (
-  
-    <div className="wrapper">
-      { <div className="login">
-    <Signup />
-      </div> }
-    </div>
-  );
+
+
+
+class App extends Component {
+  render () {
+    return (
+      <div>
+        < NavBar />
+        <div>
+          <Signup />
+        </div>
+      </div>
+    )
+  }
 }
-
 export default App;
