@@ -1,7 +1,16 @@
 import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
-
+import "../../assets/additionalcss/css/signup.css"
+import "../../assets/additionalcss/css/mbr-additional.css"
+import "../../assets/theme/css/style.css"
+import "../../assets/web/assets/icons/icons.css"
+import "../../assets/tether/tether.min.css"
+import "../../assets/bootstrap/css/bootstrap.min.css"
+import "../../assets/bootstrap/css/bootstrap-grid.min.css"
+import "../../assets/dropdown/css/style.css"
+import "../../assets/animatecss/animate.min.css"
+import "../../assets/socicon/css/styles.css"
 import NavBar from "../NavBar";
 
 
