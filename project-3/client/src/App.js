@@ -8,23 +8,22 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
   
-    <div className="wrapper">
-      { <div className="login">
-    <Signup />
-      </div> }
+  
+    //   { <div className="login">
+    // <Signup />
+    //   </div> }
       <Router>
         <div className="wrapper">
-          <div className="navBar">
-          </div>
-
+         
           <Switch>
-            <Route exact path="/" component={Expenses} />
-            <Route exact path="/search" component={AboutUs} />
+          <Route exact path="/" component={Signup} />
+            <Route exact path="/expenses" component={Expenses} />
+            <Route exact path="/aboutus" component={AboutUs} />
             {/* <Route exact path="/saved" component={LoginPage} /> */}
           </Switch>
         </div>
       </Router>
-    </div>
+    
     
   );
 }
