@@ -8,6 +8,9 @@ const currentExpense = (props) => {
         
         <div className="currentExpense">
             <h1>Current Expenses</h1>
+            <div className="upcomingExpenses">
+                {props.expensesDue}
+            </div>
            {/* This will be where the current expenses or upcoming expenses will be rendered from dummy 
             data in mongo db based on user that's logged in */}
         </div>
