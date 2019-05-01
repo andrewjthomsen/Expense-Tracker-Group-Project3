@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
 const expenseTrackerSchema = new mongoose.Schema({
-    
-    expense: {
         createdAt: {
             type: Date,
             required: true
@@ -14,7 +12,6 @@ const expenseTrackerSchema = new mongoose.Schema({
         description: {
             type: String
         }
-    },
     
 }, { strict: false});
 
