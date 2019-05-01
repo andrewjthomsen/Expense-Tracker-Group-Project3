@@ -11,7 +11,7 @@ import "../../assets/bootstrap/css/bootstrap-grid.min.css"
 import "../../assets/dropdown/css/style.css"
 import "../../assets/animatecss/animate.min.css"
 import "../../assets/socicon/css/styles.css"
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
 
 
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
 
     // <!-- main -->
     <div>
-<NavBar />
+{/* <NavBar /> */}
   
  
     <div className="main-w3layouts wrapper">

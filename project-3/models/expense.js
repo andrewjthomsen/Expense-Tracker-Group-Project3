@@ -21,6 +21,6 @@ const expenseTrackerSchema = new mongoose.Schema({
     }
 }, { strict: false});
 
-const expenseTracker = mongoose.model("User", expenseTrackerSchema);
+const expenseTracker = mongoose.model("Expense", expenseTrackerSchema);
 
 module.exports = expenseTracker;
