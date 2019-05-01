@@ -13,4 +13,7 @@ router.route("/:id")
   .put(userController.update)
   .delete(userController.delete);
 
+// submitting user info
+router.route("/login")
+.post(user)// need to be connected to a new or existing controller
 module.exports = router;
