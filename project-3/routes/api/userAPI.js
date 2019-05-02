@@ -15,5 +15,5 @@ router.route("/:id")
 
 // submitting user info
 router.route("/login")
-.post(user)// need to be connected to a new or existing controller
+.post()// need to be connected to a new or existing controller
 module.exports = router;

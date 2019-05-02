@@ -2,7 +2,7 @@ const router = require("express").Router();
 const expenseController = require("../../controllers/expenseController");
 
 // Matches with "/api/users/expenses" >>> "users" being a specific user defined, not ALL users
-router.route("/users/")
+router.route("/api/users/")
   .get(expenseController.findAllExpenses)
   .post(expenseController.create);
 
@@ -10,6 +10,6 @@ router.route("/users/")
 router.route("/users/:id")
   .get(expenseController.findExpenseByID)
   .put(expenseController.update)
-  .delete(expenseController.delete);
+  
 
 module.exports = router;
