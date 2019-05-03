@@ -40,8 +40,8 @@ class AddExpense extends React.Component{
     const amount = this.state.amount;
     const category = this.state.category;
     const comment = this.state.comment;
-    console.log("Current state is...", this.state);
-    API.addExpense({payee:payee, amount:amount, category:category,comment:comment});
+    // console.log("Current state is...", this.state);
+    API.addExpense({ payee:payee, amount:amount, category:category, comment:comment });
     // Reset form fields
     this.setState({
       category: "",
@@ -52,7 +52,7 @@ class AddExpense extends React.Component{
     //this.props.router.push('/');
     //this.props.history.push("/");
   }
-  render(){
+  render(props){
     return(
       <div className="container">
         <div className="page-title">
@@ -65,20 +65,27 @@ class AddExpense extends React.Component{
             <input type="number" placeholder="Amount" value={this.state.amount} onChange={this.handleAmount.bind(this)} required/>
             <select value={this.state.category} onChange={this.handleCategory.bind(this)}>
               <option value="books">Books</option>
-              <option value="cloths">Cloths</option>
+              <option value="clothes">Clothes</option>
               <option value="electricity">Electricity</option>
               <option value="food">Food</option>
               <option value="fruits">Fruits</option>
               <option value="grocery">Grocery</option>
               <option value="internet">Internet</option>
-              <option value="mobile">Mobile</option>
-              <option value="travelling">Travelling</option>
+              <option value="Phone">Phone</option>
+              <option value="traveling">Traveling</option>
               <option value="uncategorized">Uncategorized</option>
               <option value="vegetables">Vegetables</option>
             </select>
             <textarea value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
             <button type="submit">SUBMIT</button>
           </form>
+        </div>
+        <div className="added-expense">
+          <h1>EXPENSES</h1>
+          <h2>Payment to: {this.props.payee}</h2>
+          <h3>for $ {this.props.amount}</h3>
+          <h4>{this.props.category}</h4>
+          <h4>{this.props.comment}</h4>
         </div>
       </div>
     )
