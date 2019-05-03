@@ -1,0 +1,10 @@
+button {
+    border-radius: 5px;
+    padding: 8px 25px 8px 25px;
+    color: pink;
+}
+
+#burger-icon {
+max-height: 25px!important;
+max-width: 25px!important;
+}

@@ -51,7 +51,7 @@ const NavBar = () => {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link link text-success display-4" href="/expensePage"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
+                        <a className="nav-link link text-success display-4" href="/expenseForm"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
                             Add Expense
                         </a>
                     </li>

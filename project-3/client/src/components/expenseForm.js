@@ -1,9 +1,12 @@
 import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
-import "../assets/additionalcss/css/signup.css"
-import "../assets/additionalcss/css/mbr-additional.css"
+import "../assets/additionalcss/css/signup.css";
+import "../assets/additionalcss/css/mbr-additional.css";
 import API from "../utils/api";
+import "./expense-form.css";
+import Burger from "./burger-icon.png"
+
 class AddExpense extends React.Component{
   constructor(props){
     super(props);
@@ -53,7 +56,7 @@ class AddExpense extends React.Component{
   }
   render(){
     return(
-      <div className="container">
+      <div className="container" id="expenseFormContainer">
         <div className="page-title">
           {/* <Link to="/" className="back-button"><i className="material-icons">arrow_back</i></Link> */}
           <h2>ADD EXPENSE</h2>
@@ -75,8 +78,8 @@ class AddExpense extends React.Component{
               <option value="uncategorized">Uncategorized</option>
               <option value="vegetables">Vegetables</option>
             </select>
-            <textarea value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
-            <button type="submit">SUBMIT</button>
+            <textarea type="text" value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
+            <button type="submit"> <img src={Burger} alt="burger-icon" id="burger-icon" /> SUBMIT </button>
           </form>
         </div>
       </div>
