@@ -35,5 +35,5 @@
     "css-loader": "^2.1.1",
     "style-loader": "^0.23.1"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3000"
 }

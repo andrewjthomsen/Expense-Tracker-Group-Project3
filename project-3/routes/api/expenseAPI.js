@@ -2,7 +2,7 @@ const router = require("express").Router();
 const expenseController = require("../../controllers/expenseController");
 
 // Matches with "/api/users/expenses" >>> "users" being a specific user defined, not ALL users
-router.route("/api/users/")
+router.route("/users")
   .get(expenseController.findAllExpenses)
   .post(expenseController.create);
 
