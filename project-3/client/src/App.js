@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 // import Signup from "./components/SignUp/signup";
 import NavBar from "./components/NavBar";
-import Balance from "./components/balance";
+import Home from "./components/Home/index";
+import SignUp from "./components/SignUp/signup"
+import SignIn from "./components/SignIn/signin"
 // import CurrentExpenses from "./components/currentExpenses";
 import ExpenseForm from "./components/expenseForm";
 import "./style.css";
@@ -13,18 +15,22 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <NavBar />
-        <div>
+    return ( 
           <Router>
+            <div>
+          <NavBar />
             <Switch>
-              < Route exact path ="/"component={Balance} />
+              < Route exact path ="/" component={Home} />
+              < Route exact path ="/about" component={Home} />
+              < Route exact path ="/signin"component={SignIn} />
+              < Route exact path ="/signup" component={SignUp} />
               < Route exact path ="/ExpenseForm" component ={ExpenseForm} onNewExpense={this.newExpenseHandler} />
             </Switch>
+            </div>
           </Router>
-        </div>
-      </div>
+        
+    
+      
     );
   }
 }
