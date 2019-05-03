@@ -4,8 +4,6 @@ import * as React from "react";
 import "../../assets/additionalcss/css/signup.css"
 import "../../assets/additionalcss/css/mbr-additional.css"
 
-import NavBar from "../NavBar";
-
 
 const Login = () => {
 
@@ -13,7 +11,6 @@ const Login = () => {
 
     // <!-- main -->
     <div>
-<NavBar />
   
  
     <div className="main-w3layouts wrapper">
