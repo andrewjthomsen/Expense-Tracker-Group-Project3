@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
-const expenseTrackerSchema = new mongoose.Schema({
+const expenseSchema = new mongoose.Schema({
         createdAt: {
             type: Date,
-            required: true
+            required: true,
+            default: new Date()
         },
         amount: {
             type: Number,
@@ -15,6 +16,6 @@ const expenseTrackerSchema = new mongoose.Schema({
     
 }, { strict: false});
 
-const expenseTracker = mongoose.model("Expense", expenseTrackerSchema);
+const Expense = mongoose.model("Expense", expenseSchema);
 
-module.exports = expenseTracker;
+module.exports = Expense;
