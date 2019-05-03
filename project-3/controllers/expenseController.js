@@ -24,7 +24,7 @@ module.exports = {
   },
   // Create a new expense
   create: function(req, res) {
-    db.expenseTracker;
+    db.expenseTracker.create()
     // TO DO: fill in code for creating a new expense
     create(req.body)
       .then(dbModel => res.json(dbModel))
