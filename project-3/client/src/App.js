@@ -10,6 +10,13 @@ import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expenses: []
+    }
+  }
+
   newExpenseHandler() {
     console.log("Make an API request, blah blah blah...");
   }
