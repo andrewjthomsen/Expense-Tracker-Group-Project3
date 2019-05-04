@@ -1,9 +1,10 @@
 import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
-import "../assets/additionalcss/css/signup.css"
-import "../assets/additionalcss/css/mbr-additional.css"
+import "../assets/additionalcss/css/signup.css";
+import "../assets/additionalcss/css/mbr-additional.css";
 import API from "../utils/api";
+import "./expense-form.css";
 class AddExpense extends React.Component{
   constructor(props){
     super(props);
@@ -54,16 +55,18 @@ class AddExpense extends React.Component{
   }
   render(props){
     return(
-      <div className="container">
-        <div className="page-title">
-          {/* <Link to="/" className="back-button"><i className="material-icons">arrow_back</i></Link> */}
-          <h2>ADD EXPENSE</h2>
-        </div>
-        <div className="form-container">
-          <form onSubmit={this.addExpense.bind(this)}>
-            <input type="text" placeholder="Payee" value={this.state.payee} onChange={this.handlePayee.bind(this)} required/>
-            <input type="number" placeholder="Amount" value={this.state.amount} onChange={this.handleAmount.bind(this)} required/>
-            <select value={this.state.category} onChange={this.handleCategory.bind(this)}>
+      <div className="container" style={{textAlign: "center"}}>
+        <div className="form-container">        
+          <form className="expenseform" onSubmit={this.addExpense.bind(this)}>            
+            <p>
+            <input className="textform" type="text" placeholder="Payee" value={this.state.payee} onChange={this.handlePayee.bind(this)} required/>
+            <br />  
+            </p>
+            <p>
+            <input className="textform" type="number" placeholder="Amount" value={this.state.amount} onChange={this.handleAmount.bind(this)} required/>
+            <br />  
+            </p>
+            <select className="textform" value={this.state.category} onChange={this.handleCategory.bind(this)}>
               <option value="books">Books</option>
               <option value="clothes">Clothes</option>
               <option value="electricity">Electricity</option>
@@ -76,21 +79,23 @@ class AddExpense extends React.Component{
               <option value="uncategorized">Uncategorized</option>
               <option value="vegetables">Vegetables</option>
             </select>
-            <textarea value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
+            <br />
+            
+            <textarea className="textform" style={{height: "64px", width: "600px"}} value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
+            <br />
             <button type="submit">SUBMIT</button>
           </form>
         </div>
-        <div className="added-expense">
+        {/* <div className="added-expense">
           <h1>EXPENSES</h1>
           <h2>Payment to: {this.props.payee}</h2>
           <h3>for $ {this.props.amount}</h3>
           <h4>{this.props.category}</h4>
           <h4>{this.props.comment}</h4>
-        </div>
+        </div> */}
       </div>
     )
   }
 }
-
 
 export default AddExpense;

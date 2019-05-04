@@ -6,7 +6,7 @@ import SignUp from "./components/SignUp/signup"
 import SignIn from "./components/SignIn/signin"
 // import CurrentExpenses from "./components/currentExpenses";
 import ExpenseForm from "./components/expenseForm";
-import "./style.css";
+import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -16,19 +16,20 @@ class App extends Component {
 
   render() {
     return ( 
-          <Router>
-            <div>
+      <div>
           <NavBar />
+          <div style={{paddingTop: "150px"}}>
+           <Router>
             <Switch>
               < Route exact path ="/" component={Home} />
               < Route exact path ="/about" component={Home} />
               < Route exact path ="/signin"component={SignIn} />
               < Route exact path ="/signup" component={SignUp} />
               < Route exact path ="/ExpenseForm" component ={ExpenseForm} onNewExpense={this.newExpenseHandler} />
-            </Switch>
-            </div>
+              </Switch>
           </Router>
-        
+        </div>
+      </div>
     
       
     );
