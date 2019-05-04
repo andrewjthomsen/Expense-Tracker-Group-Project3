@@ -16,7 +16,7 @@ const Login = props => {
 
           <form action="/submit" method="post">
           
-            <input className="text" type="text" name="Username" placeholder={'UserName'} required="true" />
+            <input style= {{width:"200px !important"}} className="text" type="text" name="Username" placeholder={'UserName'} required="true" />
 
             <input className="text" type="password" name="password" placeholder={"Password"} required="true" />
             
@@ -45,23 +45,24 @@ const Login = props => {
         <li></li>
         <li></li>
       </ul>
-    </div>
-    // <!-- //main -->
+    
+    {/* // <!-- //main --> */}
   
-    // <div className="userData">
-    //   <h1>User Login</h1>
-    //   <form>
-    //     <input placeholder="Enter username">
-    //     </input>
-    //     <input type="password"
-    //       placeholder="Enter password">
-    //     </input>
-    //   </form>
-    //   <button id="submitBtn" type="submit">
-    //     Submit
-    //   </button>
-    // </div>
-    // </div>
+    {/* <div className="userData">
+      <h1>User Login</h1>
+      <form>
+        <input placeholder="Enter username">
+        </input>
+        <input type="password"
+          placeholder="Enter password">
+        </input>
+      </form>
+      <button id="submitBtn" type="submit">
+        Submit
+      </button>
+    </div> */}
+    </div>
+  
   );
 };
 

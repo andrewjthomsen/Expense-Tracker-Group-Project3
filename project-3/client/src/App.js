@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Signup from "./components/SignUp/signup";
+// import Signup from "./components/SignUp/signup";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home/index";
 import SignUp from "./components/SignUp/signup"
 import SignIn from "./components/SignIn/signin"
 // import CurrentExpenses from "./components/currentExpenses";
 import ExpenseForm from "./components/expenseForm";
-import "./style.css";
+import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
