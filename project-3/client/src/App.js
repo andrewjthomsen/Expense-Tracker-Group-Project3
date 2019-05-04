@@ -8,8 +8,26 @@ import SignIn from "./components/SignIn/signin"
 import ExpenseForm from "./components/expenseForm";
 import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import API from "./utils/api";
 
 class App extends Component {
+  // Left off here. =====> THIS IS RESPONSIBLE FOR GETTING ADDED EXPENSES TO SHOW ON FORM PAGE
+  // TODO: Need to finish this to continue trying to get new expense to appear at bottom of expense form page.
+  // TODO: NEXT-> Get all added expenses to show on bottom of expense form page.
+  // TODO: Next-> Get most recent added expense to appear first, then show last five expenses
+  //==================> NEW TODO: CREATE A DB FOR USERS AND BE ABLE TO RECOGNIZE WHICH USER IS 
+  // LOGGED IN CURRENTLY AND SHOW THEIR UNIQUELY ADDED EXPENSES
+  //TODO 1. CREATE USER DB in MONGO
+  // -- NEED TO BE ABLE TO ACCESS THIS INFO AND SHOW IT ON USER PAGE AFTER USER IS LOGGED IN
+  // --- WILL SHOW: greeting for current user, current balance, time of log in, last 5-10 added expenses, ASK GROUP FOR WHAT ELSE TO ADD
+  // TODO 2. FIGURE OUT HOW TO RECOGNIZE WHICH USER IS LOGGED IN AND WHAT THEIR ADDED EXPENSES ARE
+  // TODO 3. BUILD PROFILE PAGE AND FIGURE OUT WHERE TO SHOW USER'S EXPENSES AND CURRENT BALANCE
+  // TODO 4. BUILD OUT DUMMY STARTING BALANCE AND GET IT TO SHOW ON USER PROFILE
+  // -- CREATE 3 USERS AND HAVE INFO FOR EACH
+  // -- MAP OUT LAYOUT FOR USER PROFILE
+  // TODO 5. BUILD OUT FUNCTION TO DEDUCT EXPENSES FROM CURRENT BALANCE AND UPDATE CURRENT BALANCE'
+  // TODO 6. STYLE PAGES
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +35,10 @@ class App extends Component {
     }
   }
 
-  newExpenseHandler() {
+  newExpenseHandler(expense) {
+    API.addExpense(expense);
+    var newExpenses = this.state.expenses.push(expense); 
+    this.setState({ expenses: newExpenses });
     console.log("Make an API request, blah blah blah...");
   }
 
