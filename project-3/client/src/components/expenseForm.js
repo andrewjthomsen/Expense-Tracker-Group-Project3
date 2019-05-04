@@ -84,15 +84,16 @@ class AddExpense extends React.Component{
             <textarea className="textform" style={{height: "64px", width: "600px"}} value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
             <br />
             <button type="submit">SUBMIT</button>
-          </form>
-        </div>
-        {/* <div className="added-expense">
-          <h1>EXPENSES</h1>
+            <h1>EXPENSES</h1>
           <h2>Payment to: {this.props.payee}</h2>
           <h3>for $ {this.props.amount}</h3>
           <h4>{this.props.category}</h4>
           <h4>{this.props.comment}</h4>
-        </div> */}
+          </form>
+        </div>
+        <div className="added-expense">
+          
+        </div>
       </div>
     )
   }

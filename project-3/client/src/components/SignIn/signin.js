@@ -16,9 +16,9 @@ const Login = props => {
 
           <form action="/submit" method="post">
           
-            <input style= {{width:"200px !important"}} className="text" type="text" name="Username" placeholder={'UserName'} required="true" />
+            <input className="signin" type="text" name="Username" placeholder={'UserName'} required="true" />
 
-            <input className="text" type="password" name="password" placeholder={"Password"} required="true" />
+            <input className="signin" type="password" name="password" placeholder={"Password"} required="true" />
             
             <div className="wthree-text">
               <label className="anim">

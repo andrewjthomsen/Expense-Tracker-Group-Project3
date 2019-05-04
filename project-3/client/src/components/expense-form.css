@@ -27,11 +27,15 @@ button {
 }
 input[type="text"], input[type="email"], input[type="password"] {
     height: 36px !important;
-    width: 600px !important;
+    width: 600px;
 }
 .expenseform {
     height: 64px !important;
     width: 600px !important;
+}
+.signin{
+    height: 36px !important;
+    width: 400px !important;
 }
 /* #burger-icon {
 max-height: 25px!important;
