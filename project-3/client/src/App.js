@@ -8,6 +8,7 @@ import SignIn from "./components/SignIn/signin"
 import ExpenseForm from "./components/expenseForm";
 import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import API from "./utils/api";
 
 class App extends Component {
   // Left off here. =====> THIS IS RESPONSIBLE FOR GETTING ADDED EXPENSES TO SHOW ON FORM PAGE
@@ -25,6 +26,7 @@ class App extends Component {
   // -- CREATE 3 USERS AND HAVE INFO FOR EACH
   // -- MAP OUT LAYOUT FOR USER PROFILE
   // TODO 5. BUILD OUT FUNCTION TO DEDUCT EXPENSES FROM CURRENT BALANCE AND UPDATE CURRENT BALANCE'
+  // TODO 6. STYLE PAGES
 
   constructor(props) {
     super(props);
@@ -33,7 +35,10 @@ class App extends Component {
     }
   }
 
-  newExpenseHandler() {
+  newExpenseHandler(expense) {
+    API.addExpense(expense);
+    var newExpenses = this.state.expenses.push(expense); 
+    this.setState({ expenses: newExpenses });
     console.log("Make an API request, blah blah blah...");
   }
 

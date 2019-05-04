@@ -3,7 +3,6 @@ import * as React from "react";
 // stateless functional component that returns html (jsx)
 import "../assets/additionalcss/css/signup.css";
 import "../assets/additionalcss/css/mbr-additional.css";
-import API from "../utils/api";
 import "./expense-form.css";
 class AddExpense extends React.Component{
   constructor(props){
@@ -42,7 +41,8 @@ class AddExpense extends React.Component{
     const category = this.state.category;
     const comment = this.state.comment;
     // console.log("Current state is...", this.state);
-    API.addExpense({ payee:payee, amount:amount, category:category, comment:comment });
+    const expense = { payee, amount, category, comment };
+    
     // Reset form fields
     this.setState({
       category: "",
@@ -50,6 +50,7 @@ class AddExpense extends React.Component{
       amount: "",
       comment: ""
     });
+    this.props.onNewExpense(expense);
     //this.props.router.push('/');
     //this.props.history.push("/");
   }
@@ -84,15 +85,7 @@ class AddExpense extends React.Component{
             <textarea className="textform" style={{height: "64px", width: "600px"}} value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
             <br />
             <button type="submit">SUBMIT</button>
-            <h1>EXPENSES</h1>
-          <h2>Payment to: {this.props.payee}</h2>
-          <h3>for $ {this.props.amount}</h3>
-          <h4>{this.props.category}</h4>
-          <h4>{this.props.comment}</h4>
           </form>
-        </div>
-        <div className="added-expense">
-          
         </div>
       </div>
     )
