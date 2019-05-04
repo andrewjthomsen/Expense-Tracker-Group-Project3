@@ -10,10 +10,10 @@ function Home() {
   return (
     // <!-- main -->
     <div>
-      <Hero backgroundImage=
+      {/* <Hero backgroundImage=
       <h1>A F F L U E N T</h1>
       <h3>BE WISE WITH YOUR MONEY</h3>
-      </Hero>
+      </Hero> */}
       
 
     </div> 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Signup from "./components/SignUp/signup";
+import Signup from "./components/SignUp/signup";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home/index";
 import SignUp from "./components/SignUp/signup"
@@ -16,19 +16,20 @@ class App extends Component {
 
   render() {
     return ( 
-          <Router>
-            <div>
+      <div>
           <NavBar />
+          <div style={{paddingTop: "150px"}}>
+           <Router>
             <Switch>
               < Route exact path ="/" component={Home} />
               < Route exact path ="/about" component={Home} />
               < Route exact path ="/signin"component={SignIn} />
               < Route exact path ="/signup" component={SignUp} />
               < Route exact path ="/ExpenseForm" component ={ExpenseForm} onNewExpense={this.newExpenseHandler} />
-            </Switch>
-            </div>
+              </Switch>
           </Router>
-        
+        </div>
+      </div>
     
       
     );
