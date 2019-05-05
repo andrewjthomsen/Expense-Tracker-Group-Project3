@@ -1,3 +1,43 @@
-#expenseFormContainer {
-    text-align: center;
+* {
+    outline: transparent!important;
+    text-decoration: none!important;
 }
+
+body {
+    padding-top: 77px;
+}
+
+/* CSS for expense form component */
+.textform {
+    display: inline !important;
+    font-display: black;
+    place-content: black;
+    text-align: center !important;
+    height: 45px !important;
+    width: 600px;
+    color: black !important;
+}
+select{
+    text-align: center !important;
+}
+button {
+    border-radius: 5px;
+    padding: 8px 25px 8px 25px;
+    color: black;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    height: 36px !important;
+    width: 600px;
+}
+.expenseform {
+    height: 64px !important;
+    width: 600px !important;
+}
+.signin{
+    height: 36px !important;
+    width: 400px !important;
+}
+/* #burger-icon {
+max-height: 25px!important;
+max-width: 25px!important;
+} */
