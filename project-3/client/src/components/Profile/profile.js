@@ -13,25 +13,30 @@ import "../../assets/additionalcss/css/mbr-additional.css"
 // enter in their bank information
 
 
-function Profile() {
-  return (
-    // <!-- main -->
-    <div className="container">
-    <h1>Welcome {/*username goes here*/}!
-    {/*Display date and time of login here*/}</h1> 
-    <h4>Available Balance:
-    {/*Display available balance here*/}
-    </h4>
-    <h4>Latest Transactions
-        {/*Display added expenses here*/}
-        {/*Display last 5 added expenses only*/}
-    </h4>
-    <h4>Add Your Bank(s)
-        {/*Display banks added here*/}
-    </h4>
-    </div> 
-  
-  );
+function Profile(props) {
+    console.log(props);
+    return (
+        // <!-- main -->
+        <div className="container">
+            <h1>Welcome {/*username goes here*/}!
+            {/*Display date and time of login here*/}</h1> 
+            <h4>Available Balance:
+            {/*Display available balance here*/}
+            </h4>
+            <h4>Latest Expenses</h4>
+            <div>
+                { props.expenses.map((expense) => {
+                    return (
+                        <div>{ expense.payee }: { expense.amount } ({ expense.category })</div>
+                    );
+                }) }
+                {/*Display last 5 added expenses only*/}
+            </div>
+            <h4>Add Your Bank(s)
+                {/*Display banks added here*/}
+            </h4>
+        </div> 
+    );
 }
    
 export default Profile;

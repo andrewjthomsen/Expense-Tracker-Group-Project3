@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from 'react-router-dom';
 import "../../assets/additionalcss/css/mbr-additional.css"
 import "../../assets/theme/css/style.css"
 //import "../../assets/bootstrap/css/bootstrap.min.css"
@@ -11,6 +12,8 @@ import "../../assets/animatecss/animate.min.css"
 import "../../assets/socicon/css/styles.css"
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
+
+// TODO: Change all <a> tags to <Link> tags, with href replaced with to.
 
 const NavBar = () => {
 
@@ -40,10 +43,10 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
                     <li className="nav-item">
-                        <a className="nav-link link text-success display-4" href="/profile">
+                        <Link className="nav-link link text-success display-4" to="/profile">
                         <span className="mbri-cash mbr-iconfont mbr-iconfont-btn"></span>  
                             Services
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link link text-success display-4" href="/contactus"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
@@ -51,9 +54,9 @@ const NavBar = () => {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link link text-success display-4" href="/expenseForm"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
+                        <Link className="nav-link link text-success display-4" to="/expenseForm"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
                             Add Expense
-                        </a>
+                        </Link>
                     </li>
                     
                 </ul>

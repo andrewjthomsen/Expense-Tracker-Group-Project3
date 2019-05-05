@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp/signup"
 import SignIn from "./components/SignIn/signin"
 // import CurrentExpenses from "./components/currentExpenses";
 import ExpenseForm from "./components/expenseForm";
+import Profile from "./components/Profile/profile";
 import "./app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/api";
@@ -33,11 +34,14 @@ class App extends Component {
     this.state = {
       expenses: []
     }
+
+    this.newExpenseHandler = this.newExpenseHandler.bind(this);
   }
 
   newExpenseHandler(expense) {
-    API.addExpense(expense);
-    var newExpenses = this.state.expenses.push(expense); 
+    //API.addExpense(expense);
+    var newExpenses = this.state.expenses;
+    newExpenses.push(expense);
     this.setState({ expenses: newExpenses });
     console.log("Make an API request, blah blah blah...");
   }
@@ -45,18 +49,19 @@ class App extends Component {
   render() {
     return ( 
       <div>
-          <NavBar />
-          <div style={{paddingTop: "150px"}}>
-           <Router>
-            <Switch>
-              < Route exact path ="/" component={Home} />
-              < Route exact path ="/about" component={Home} />
-              < Route exact path ="/signin"component={SignIn} />
-              < Route exact path ="/signup" component={SignUp} />
-              < Route exact path ="/ExpenseForm" component ={ExpenseForm} onNewExpense={this.newExpenseHandler} />
+          <Router>  
+            <NavBar /> 
+            <div style={{paddingTop: "150px"}}>
+              <Switch>
+                < Route exact path ="/" component={Home} />
+                < Route exact path ="/about" component={Home} />
+                < Route exact path ="/signin"component={SignIn} />
+                < Route exact path ="/signup" component={SignUp} />
+                < Route exact path ="/ExpenseForm" render={ (props) => <ExpenseForm onNewExpense={this.newExpenseHandler} {...props} /> } />
+                < Route exact path ="/profile" render={ (props) => <Profile {...props} expenses={ this.state.expenses } /> } />
               </Switch>
+            </div>
           </Router>
-        </div>
       </div>
     
       
