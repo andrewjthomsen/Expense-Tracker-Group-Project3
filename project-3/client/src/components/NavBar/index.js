@@ -49,9 +49,9 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link link text-success display-4" href="/contactus"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
+                        <Link className="nav-link link text-success display-4" href="/contactus"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
                             About Us
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link link text-success display-4" to="/expenseForm"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
