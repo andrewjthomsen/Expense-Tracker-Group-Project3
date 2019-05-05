@@ -55,7 +55,8 @@ class AddExpense extends React.Component{
   }
   render(props){
     return(
-      <div className="container" style={{textAlign: "center"}}>
+      <div className="form-container" style={{textAlign: "center"}}>
+      <h1 className="expense-h1">Add an Expense</h1>
         <div className="form-container">        
           <form className="expenseform" onSubmit={this.addExpense.bind(this)}>            
             <p>
