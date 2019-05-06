@@ -10,6 +10,7 @@ import "../../assets/bootstrap/css/bootstrap-reboot.min.css"
 import "../../assets/dropdown/css/style.css"
 import "../../assets/animatecss/animate.min.css"
 import "../../assets/socicon/css/styles.css"
+import "../../assets/images/Logo.png ";
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -34,7 +35,7 @@ const NavBar = () => {
                 <div className="navbar-brand">
                     <span className="navbar-logo">
                         
-                             <img src="../../assets/images/owl-122x122.png" alt="" title="" style={{height: '4.4rem'}}/>
+                             <img src={"../../assets/images/Logo.png"} alt="" title="" style={{height: '4.4rem'}}/>
                         
                     </span>
                     <span className="navbar-caption-wrap"><a className="navbar-caption text-success display-2" href="/">Affluent</a></span>
