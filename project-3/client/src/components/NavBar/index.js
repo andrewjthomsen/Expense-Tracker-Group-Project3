@@ -1,20 +1,22 @@
 import * as React from "react";
-// import { Router } from 'react-router'
-// stateless functional component that returns html (jsx)
-import "../../assets/additionalcss/css/signup.css"
+import { Link } from 'react-router-dom';
 import "../../assets/additionalcss/css/mbr-additional.css"
 import "../../assets/theme/css/style.css"
+//import "../../assets/bootstrap/css/bootstrap.min.css"
 import "../../assets/web/assets/icons/icons.css"
 import "../../assets/tether/tether.min.css"
-import "../../assets/bootstrap/css/bootstrap.min.css"
 import "../../assets/bootstrap/css/bootstrap-grid.min.css"
+import "../../assets/bootstrap/css/bootstrap-reboot.min.css"
 import "../../assets/dropdown/css/style.css"
 import "../../assets/animatecss/animate.min.css"
 import "../../assets/socicon/css/styles.css"
+import "../../assets/images/Logo.png ";
+//import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
+// TODO: Change all <a> tags to <Link> tags, with href replaced with to.
 
-const NavBar = (props) => {
+const NavBar = () => {
 
     return (
 
@@ -33,30 +35,35 @@ const NavBar = (props) => {
                 <div className="navbar-brand">
                     <span className="navbar-logo">
                         
-                             <img src="assets/images/owl-122x122.png" alt="" title="" height="4.4rem"/>
+                             <img src={"../../assets/images/Logo.png"} alt="" title="" style={{height: '4.4rem'}}/>
                         
                     </span>
-                    <span className="navbar-caption-wrap"><a class="navbar-caption text-success display-2" href="/">Affluent</a></span>
+                    <span className="navbar-caption-wrap"><a className="navbar-caption text-success display-2" href="/">Affluent</a></span>
                 </div>
             </div>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                    <li class="nav-item">
-                        <a className="nav-link link text-success display-4" href="/profile">
-                        <span class="mbri-cash mbr-iconfont mbr-iconfont-btn"></span>  
+                    <li className="nav-item">
+                        <Link className="nav-link link text-success display-4" to="/profile">
+                        <span className="mbri-cash mbr-iconfont mbr-iconfont-btn"></span>  
                             Services
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link link text-success display-4" href="/contactus"><span class="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
+                        <Link className="nav-link link text-success display-4" href="/contactus"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
                             About Us
-                        </a>
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link link text-success display-4" to="/expenseForm"><span className="mbri-hot-cup mbr-iconfont mbr-iconfont-btn"></span>
+                            Add Expense
+                        </Link>
                     </li>
                     
                 </ul>
 
                 <div className="navbar-buttons mbr-section-btn">
-                    <a class="btn btn-sm btn-success-outline display-4" href="/signup">
+                    <a className="btn btn-sm btn-success-outline display-4" href="/signup">
                         <span className="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
                         Try It Now!
                     </a>

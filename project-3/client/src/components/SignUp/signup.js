@@ -3,15 +3,6 @@ import * as React from "react";
 // stateless functional component that returns html (jsx)
 import "../../assets/additionalcss/css/signup.css"
 import "../../assets/additionalcss/css/mbr-additional.css"
-import "../../assets/theme/css/style.css"
-import "../../assets/web/assets/icons/icons.css"
-import "../../assets/tether/tether.min.css"
-import "../../assets/bootstrap/css/bootstrap.min.css"
-import "../../assets/bootstrap/css/bootstrap-grid.min.css"
-import "../../assets/dropdown/css/style.css"
-import "../../assets/animatecss/animate.min.css"
-import "../../assets/socicon/css/styles.css"
-import NavBar from "../NavBar";
 
 
 const Login = () => {
@@ -20,7 +11,6 @@ const Login = () => {
 
     // <!-- main -->
     <div>
-<NavBar />
   
  
     <div className="main-w3layouts wrapper">
@@ -41,7 +31,7 @@ const Login = () => {
             </div>
             <input type="submit" value="SIGNUP" />
           </form>
-          <p>Have an Account? <a href="/login"> Login Now!</a></p>
+          <p>Have an Account? <a href="/signin"> Login Now!</a></p>
         </div>
       </div>
     

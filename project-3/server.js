@@ -1,6 +1,6 @@
 const express = require("express");
 
-// const path = require("path");
+const path = require("path");
 // const router = require("express").Router();
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -19,13 +19,13 @@ mongoose.connect(
 )
 
 // Define API routes here
-// const models = require("./models/");
+const models = require("./models/");
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("/", (req, res) => {
-  res.send("HELLLLLLLLLLLOOOOOOOOOOOOOOO");
-});
+// app.get("/", (req, res) => {
+//   res.send("HELLLLLLLLLLLOOOOOOOOOOOOOOO");
+// });
 
 // router.use(function(req, res) {
 //   if (err) throw err;
@@ -33,6 +33,14 @@ app.get("/", (req, res) => {
 // });
 
 app.use(routes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./test-html-css/html/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
