@@ -10,7 +10,7 @@ import "../../assets/bootstrap/css/bootstrap-reboot.min.css"
 import "../../assets/dropdown/css/style.css"
 import "../../assets/animatecss/animate.min.css"
 import "../../assets/socicon/css/styles.css"
-import "../../assets/images/Logo.png ";
+// import "../../assets/images/Logo.png ";
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
