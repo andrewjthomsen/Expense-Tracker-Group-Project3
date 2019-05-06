@@ -19,6 +19,9 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "babel": "^6.23.0",
+    "barbel": "0.0.9",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.5",
