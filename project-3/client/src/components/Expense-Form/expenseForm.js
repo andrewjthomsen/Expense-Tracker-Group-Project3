@@ -8,6 +8,7 @@ class AddExpense extends React.Component {
     super(props);
     this.state = {
       payee: "",
+      User: "",
       amount: "",
       category: "",
       comment: ""
@@ -105,9 +106,7 @@ class AddExpense extends React.Component {
               placeholder="Comment"
             />
             <br />
-            <button type="submit" onClick={props.addExpense}>
-              SUBMIT
-            </button>
+            <button type="submit">SUBMIT</button>
           </form>
         </div>
       </div>

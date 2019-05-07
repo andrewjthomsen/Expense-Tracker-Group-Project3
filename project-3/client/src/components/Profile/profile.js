@@ -13,7 +13,6 @@ import * as React from "react";
 // enter in their bank information
 
 function Profile(props) {
-  
   return (
     // <!-- main -->
     <div className="container">

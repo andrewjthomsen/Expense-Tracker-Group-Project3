@@ -20,13 +20,7 @@ ReactDOM.render(
       <Route path="/rtl" component={RTL} />
       {/* <Route exact path="/signin" component={SignIn} /> */}
       {/* <Route exact path="/signup" component={SignUp} /> */}
-      <Route
-        exact
-        path="/ExpenseForm"
-        render={props => (
-          <AddExpense/>
-        )}
-      />
+      <Route exact path="/ExpenseForm" render={props => <AddExpense />} />
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </Router>,
