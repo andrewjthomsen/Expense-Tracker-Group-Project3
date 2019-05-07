@@ -6,6 +6,10 @@ const expenseSchema = new mongoose.Schema({
             required: true,
             default: new Date()
         },
+        username: {
+            type: String,
+            required: true,
+        },
         amount: {
             type: Number,
             required: true

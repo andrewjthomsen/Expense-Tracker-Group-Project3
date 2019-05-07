@@ -48,5 +48,13 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  // Sum of balance <--- New feature
+  sum: function(req, res) {
+    db.models.Expense
+    db.models.Expense.aggregate([{$group : {_id : "$username",  amount: {$sum : 1}}}])
+    
+
+    
   }
 };

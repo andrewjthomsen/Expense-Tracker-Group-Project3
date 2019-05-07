@@ -21,13 +21,15 @@ function Profile(props) {
             <h1>Welcome {/*username goes here*/}!
             {/*Display date and time of login here*/}</h1> 
             <h4>Available Balance:
-            {/*Display available balance here*/}
+            {/* <div>{ props.expense.map((expense) => {
+                
+            }) }</div>Display available balance here */}
             </h4>
             <h4>Latest Expenses</h4>
             <div>
                 { props.expenses.map((expense) => {
                     return (
-                        <div>{ expense.payee }: { expense.amount } ({ expense.category })</div>
+                        <div>{ expense.userName }: { expense.payee }  { expense.amount } ({ expense.category })</div>
                     );
                 }) }
                 {/*Display last 5 added expenses only*/}

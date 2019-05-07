@@ -8,6 +8,7 @@ class AddExpense extends React.Component{
     super(props);
     this.state = {
       payee: "",
+      username: "",
       amount: "",
       category: "",
       comment: ""
@@ -16,6 +17,11 @@ class AddExpense extends React.Component{
   handlePayee(e){
     this.setState({
       payee: e.target.value
+    })
+  }
+  handleUserName(e){
+    this.setState({
+      username: e.target.value
     })
   }
   handleAmount(e){
@@ -36,16 +42,18 @@ class AddExpense extends React.Component{
   addExpense(e){
     e.preventDefault();
     const payee = this.state.payee;
+    const userName = this.state.username;
     const amount = this.state.amount;
     const category = this.state.category;
     const comment = this.state.comment;
     // console.log("Current state is...", this.state);
-    const expense = { payee, amount, category, comment };
+    const expense = { payee, userName, amount, category, comment };
     
     // Reset form fields
     this.setState({
       category: "",
       payee: "",
+      userName: "",
       amount: "",
       comment: ""
     });
@@ -58,7 +66,11 @@ class AddExpense extends React.Component{
       <div className="form-container" style={{textAlign: "center"}}>
       <h1 className="expense-h1">Add an Expense</h1>
         <div className="form-container">        
-          <form className="expenseform" onSubmit={this.addExpense.bind(this)}>            
+          <form className="expenseform" onSubmit={this.addExpense.bind(this)}>     
+          <p>
+            <input className="textform" type="text" placeholder="username" value={this.state.userName} onChange={this.handleUserName.bind(this)} required/>
+            <br />  
+            </p>       
             <p>
             <input className="textform" type="text" placeholder="Payee" value={this.state.payee} onChange={this.handlePayee.bind(this)} required/>
             <br />  
