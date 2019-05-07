@@ -1,0 +1,29 @@
+.button-wrapper {
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    background-color: rgb(82, 80, 80);
+    color: white;
+    flex: 1;
+    border: 1px solid black;
+}
+
+.operator {
+    background-color: rgb(255, 189, 8);
+    color: black;
+}
+
+.clear-btn {
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    background-color: black;
+    color: white;
+    flex: 1;
+    outline: 1px solid rgb(90, 88, 88);
+}
