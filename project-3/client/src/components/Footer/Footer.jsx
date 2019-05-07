@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from "../../../node_modules/prop-types";
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
+import withStyles from "../../../node_modules/@material-ui/core/styles/withStyles";
+import ListItem from "../../../node_modules/@material-ui/core/ListItem";
+import List from "../../../node_modules/@material-ui/core/List";
 // core components
-import footerStyle from "assets/jss/material-dashboard-react/components/footerStyle.jsx";
+import footerStyle from "../../assets/jss/material-dashboard-react/components/footerStyle";
 
 function Footer({ ...props }) {
   const { classes } = props;
