@@ -6,11 +6,24 @@ const expenseSchema = new mongoose.Schema({
             required: true,
             default: new Date()
         },
+        User: {
+            type: String,
+            ref: "User",
+            required: true
+        },
+        payee: {
+            type: String,
+            required: true
+        },
         amount: {
             type: Number,
             required: true
         },
-        description: {
+        category: {
+            type: String,
+            required: true
+        },
+        comment: {
             type: String
         }
     
