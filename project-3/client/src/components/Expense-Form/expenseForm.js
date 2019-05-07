@@ -3,45 +3,44 @@ import * as React from "react";
 // stateless functional component that returns html (jsx)
 // import "../../assets/additionalcss/css/signup.css";
 // import "../../assets/additionalcss/css/mbr-additional.css";
-class AddExpense extends React.Component{
-  constructor(props){
+class AddExpense extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       payee: "",
       amount: "",
       category: "",
       comment: ""
-    }
+    };
   }
-  handlePayee(e){
+  handlePayee(e) {
     this.setState({
       payee: e.target.value
-    })
+    });
   }
-  handleAmount(e){
+  handleAmount(e) {
     this.setState({
       amount: e.target.value
-    })
+    });
   }
-  handleCategory(e){
+  handleCategory(e) {
     this.setState({
       category: e.target.value
-    })
+    });
   }
-  handleComment(e){
+  handleComment(e) {
     this.setState({
       comment: e.target.value
-    })
+    });
   }
-  addExpense(e){
+  addExpense(e) {
     e.preventDefault();
     const payee = this.state.payee;
     const amount = this.state.amount;
     const category = this.state.category;
     const comment = this.state.comment;
-    // console.log("Current state is...", this.state);
     const expense = { payee, amount, category, comment };
-    
+
     // Reset form fields
     this.setState({
       category: "",
@@ -49,25 +48,41 @@ class AddExpense extends React.Component{
       amount: "",
       comment: ""
     });
-    this.props.onNewExpense(expense);
-    //this.props.router.push('/');
-    //this.props.history.push("/");
+    // this.props.onNewExpense(expense);
   }
-  render(props){
-    return(
-      <div className="form-container" style={{textAlign: "center"}}>
-      <h1 className="expense-h1">Add an Expense</h1>
-        <div className="form-container">        
-          <form className="expenseform" onSubmit={this.addExpense.bind(this)}>            
+  render(props) {
+    return (
+      <div className="form-container" style={{ textAlign: "center" }}>
+        <h1 className="expense-h1">Add an Expense</h1>
+        <div className="form-container">
+          <form className="expenseform" onSubmit={this.addExpense.bind(this)}>
             <p>
-            <input className="textform" type="text" placeholder="Payee" value={this.state.payee} onChange={this.handlePayee.bind(this)} required/>
-            <br />  
+              <input
+                className="textform"
+                type="text"
+                placeholder="Payee"
+                value={this.state.payee}
+                onChange={this.handlePayee.bind(this)}
+                required
+              />
+              <br />
             </p>
             <p>
-            <input className="textform" type="number" placeholder="Amount" value={this.state.amount} onChange={this.handleAmount.bind(this)} required/>
-            <br />  
+              <input
+                className="textform"
+                type="number"
+                placeholder="Amount"
+                value={this.state.amount}
+                onChange={this.handleAmount.bind(this)}
+                required
+              />
+              <br />
             </p>
-            <select className="textform" value={this.state.category} onChange={this.handleCategory.bind(this)}>
+            <select
+              className="textform"
+              value={this.state.category}
+              onChange={this.handleCategory.bind(this)}
+            >
               <option value="books">Books</option>
               <option value="clothes">Clothes</option>
               <option value="electricity">Electricity</option>
@@ -81,14 +96,22 @@ class AddExpense extends React.Component{
               <option value="vegetables">Vegetables</option>
             </select>
             <br />
-            
-            <textarea className="textform" style={{height: "64px", width: "600px"}} value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
+
+            <textarea
+              className="textform"
+              style={{ height: "64px", width: "600px" }}
+              value={this.state.comment}
+              onChange={this.handleComment.bind(this)}
+              placeholder="Comment"
+            />
             <br />
-            <button type="submit">SUBMIT</button>
+            <button type="submit" onClick={props.addExpense}>
+              SUBMIT
+            </button>
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
