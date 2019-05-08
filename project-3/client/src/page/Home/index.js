@@ -14,11 +14,8 @@ function Home() {
       <h1>A F F L U E N T</h1>
       <h3>BE WISE WITH YOUR MONEY</h3>
       </Hero> */}
-      
-
-    </div> 
-  
+    </div>
   );
 }
-   
+
 export default Home;
