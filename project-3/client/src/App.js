@@ -2,14 +2,14 @@ import React, { Component } from "react";
 // import Signup from "./components/SignUp/signup";
 import NavBar from "./components/NavBar/index";
 import Home from "./components/Home/index";
-import SignUp from "./components/SignUp/signup";
-import SignIn from "./components/SignIn/signin";
+// import SignUp from "./components/SignUp/signup";
+// import SignIn from "./components/SignIn/signin";
 // import CurrentExpenses from "./components/currentExpenses";
-import ExpenseForm from "./components/Expense-Form/expenseForm";
+// import AddExpense from "./components/Expense-Form/expenseForm";
 import Profile from "./components/Profile/profile";
 import "./style/App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import API from "./utils/api";
+// import API from "./utils/api";
 
 class App extends Component {
   // Left off here. =====> THIS IS RESPONSIBLE FOR GETTING ADDED EXPENSES TO SHOW ON FORM PAGE
@@ -55,9 +55,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={Home} />
-              <Route exact path="/signin" component={SignIn} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route
+              {/* <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} /> */}
+              {/* <Route
                 exact
                 path="/ExpenseForm"
                 render={props => (
@@ -66,7 +66,7 @@ class App extends Component {
                     {...props}
                   />
                 )}
-              />
+              /> */}
               <Route
                 exact
                 path="/profile"

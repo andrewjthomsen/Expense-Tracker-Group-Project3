@@ -6,4 +6,3 @@ module.exports = {
     mongoURI: "mongodb://localhost/ExpenseTracker",
     secretOrKey: "secret"
   };
-

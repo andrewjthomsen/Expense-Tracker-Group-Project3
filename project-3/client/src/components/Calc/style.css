@@ -1,0 +1,26 @@
+.calc-wrapper {
+    width: 400px;
+    height: 600px;
+}
+
+.calc-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.calc-col-1{
+    width: 25%; 
+}
+
+.calc-col-2{
+    width: 50%; 
+}
+
+.calc-col-3{
+    width: 75%; 
+}
+
+.calc-col-4{
+    width: 100%;
+}
