@@ -53,6 +53,11 @@ class AddExpense extends React.Component {
       payee: e.target.value
     });
   }
+  // handleUser(e) {
+  //   this.setState({
+  //     user: e.target.value
+  //   });
+  // }
   handleAmount(e) {
     this.setState({
       amount: e.target.value
@@ -70,11 +75,19 @@ class AddExpense extends React.Component {
   }
   addExpense(e) {
     e.preventDefault();
+
+    const payee = this.state.payee;
+    const amount = this.state.amount;
+    // const user = this.state.user;
+    const category = this.state.category;
+    const comment = this.state.comment;
+    const expense = { payee, amount, category, comment };
+
     // Reset form fields
     this.setState({
       category: "",
       payee: "",
-      user: "",
+      // user: "",
       amount: "",
       comment: ""
     });
@@ -112,6 +125,18 @@ class AddExpense extends React.Component {
                       }}
                     />
                   </GridItem>
+                  {/* <GridItem xs={12} sm={12} md={5}>
+                    <CustomInput
+                      labelText="User"
+                      id="user"
+                      value={this.state.user}
+                      onChange={this.handleUser.bind(this)}
+                      required
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                    />
+                  </GridItem> */}
                   <GridItem xs={12} sm={12} md={5}>
                     <CustomInput
                       labelText="Amount"
