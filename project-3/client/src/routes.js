@@ -20,7 +20,7 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 //import RTLPage from "views/RTLPage/RTLPage.jsx";
 // Group Created pages
 import Profile from "./views/Profile/profile";
-import ExepenseForm from "./views/Expense-Form/expenseForm";
+import ExpenseForm from "./views/Expense-Form/expenseForm";
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -40,7 +40,7 @@ const dashboardRoutes = [
     path: "/expenseForm",
     name: "Expense Form",
     icon: "table_chart",
-    component: ExepenseForm,
+    component: ExpenseForm,
     layout: "/admin"
   },
   {
