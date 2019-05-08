@@ -48,7 +48,7 @@ html * {
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background-color: linear-gradient(to top, #fffb20, rgb(3, 2, 2));
+  background: linear-gradient(to top, #fffb20, rgb(3, 2, 2));
   color: #3c4858;
   margin: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
