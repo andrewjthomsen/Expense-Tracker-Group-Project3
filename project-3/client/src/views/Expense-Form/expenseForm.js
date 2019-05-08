@@ -16,6 +16,7 @@ import Style from "../../assets/jss/material-dashboard-react/views/dashboardStyl
 import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Input from "@material-ui/core/Input";
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -69,13 +70,15 @@ class AddExpense extends React.Component {
     e.preventDefault();
     const payee = this.state.payee;
     const amount = this.state.amount;
+    const user = this.state.user;
     const category = this.state.category;
     const comment = this.state.comment;
-    const expense = { payee, amount, category, comment };
+    const expense = { payee, user, amount, category, comment };
     // Reset form fields
     this.setState({
       category: "",
       payee: "",
+      user: "",
       amount: "",
       comment: ""
     });
@@ -101,6 +104,9 @@ class AddExpense extends React.Component {
                     <CustomInput
                       labelText="Payee"
                       id="payee"
+                      value={this.state.payee}
+                      onChange={this.handlePayee.bind(this)}
+                      required
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -110,6 +116,9 @@ class AddExpense extends React.Component {
                     <CustomInput
                       labelText="Amount"
                       id="amount"
+                      value={this.state.amount}
+                      onChange={this.handleAmount.bind(this)}
+                      required
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -118,69 +127,34 @@ class AddExpense extends React.Component {
                 </GridContainer>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
+                    <InputLabel htmlFor="age-helper">Category</InputLabel>
                     <Select
-                      value={this.state.age}
-                      onChange={this.handleChange}
-                      inputProps={{
-                        name: "age",
-                        id: "age-simple"
-                      }}
+                      value={this.state.category}
+                      onChange={this.handleCategory.bind(this)}
+                      input={<Input name="age" id="age-helper" />}
                     >
                       <MenuItem value="">
                         <em>None</em>
                       </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      <MenuItem value={"books"}>Books</MenuItem>
+                      <MenuItem value={"clothes"}>Clothes</MenuItem>
+                      <MenuItem value={"electricity"}>Electricity</MenuItem>
+                      <MenuItem value={"food"}>Food</MenuItem>
+                      <MenuItem value={"fruit"}>Fruit</MenuItem>
+                      <MenuItem value={"grocery"}>Grocery</MenuItem>
+                      <MenuItem value={"internet"}>Internet</MenuItem>
+                      <MenuItem value={"phone"}>Phone</MenuItem>
+                      <MenuItem value={"traveling"}>Traveling</MenuItem>
+                      <MenuItem value={"uncategorized"}>Uncategorized</MenuItem>
+                      <MenuItem value={"vegetables"}>Vegetables</MenuItem>
                     </Select>
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={6}>
-                    <CustomInput
-                      labelText="Last Name"
-                      id="last-name"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
-                  </GridItem>
-                </GridContainer>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <CustomInput
-                      labelText="City"
-                      id="city"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <CustomInput
-                      labelText="Country"
-                      id="country"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <CustomInput
-                      labelText="Postal Code"
-                      id="postal-code"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
                   </GridItem>
                 </GridContainer>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <InputLabel style={{ color: "#AAAAAA" }}>
-                      About me
-                    </InputLabel>
                     <CustomInput
-                      labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                      id="about-me"
+                      labelText="comment"
+                      id="comment"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -193,7 +167,9 @@ class AddExpense extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <Button color="primary">Update Profile</Button>
+                <Button type="submit" color="primary">
+                  Submit
+                </Button>
               </CardFooter>
             </Card>
           </GridItem>
@@ -204,7 +180,7 @@ class AddExpense extends React.Component {
                   <img src={avatar} alt="..." />
                 </a>
               </CardAvatar>
-              <CardBody profile>
+              {/* <CardBody profile>
                 <h6 className={Style.cardCategory}>CEO / CO-FOUNDER</h6>
                 <h4 className={Style.cardTitle}>Alec Thompson</h4>
                 <p className={Style.description}>
@@ -215,7 +191,7 @@ class AddExpense extends React.Component {
                 <Button color="primary" round>
                   Follow
                 </Button>
-              </CardBody>
+              </CardBody> */}
             </Card>
           </GridItem>
         </GridContainer>
@@ -223,39 +199,4 @@ class AddExpense extends React.Component {
     );
   }
 }
-//   <div className="form-container" style={{textAlign: "center"}}>
-//   <h1 className="expense-h1">Add an Expense</h1>
-//     <div className="form-container">
-//       <form className="expenseform" onSubmit={this.addExpense.bind(this)}>
-//         <p>
-//         <input className="textform" type="text" placeholder="Payee" value={this.state.payee} onChange={this.handlePayee.bind(this)} required/>
-//         <br />
-//         </p>
-//         <p>
-//         <input className="textform" type="number" placeholder="Amount" value={this.state.amount} onChange={this.handleAmount.bind(this)} required/>
-//         <br />
-//         </p>
-//         <select className="textform" value={this.state.category} onChange={this.handleCategory.bind(this)}>
-//           <option value="books">Books</option>
-//           <option value="clothes">Clothes</option>
-//           <option value="electricity">Electricity</option>
-//           <option value="food">Food</option>
-//           <option value="fruits">Fruits</option>
-//           <option value="grocery">Grocery</option>
-//           <option value="internet">Internet</option>
-//           <option value="Phone">Phone</option>
-//           <option value="traveling">Traveling</option>
-//           <option value="uncategorized">Uncategorized</option>
-//           <option value="vegetables">Vegetables</option>
-//         </select>
-//         <br />
-//         <textarea className="textform" style={{height: "64px", width: "600px"}} value={this.state.comment} onChange={this.handleComment.bind(this)} placeholder="Comment"/>
-//         <br />
-//         <button type="submit">SUBMIT</button>
-//       </form>
-//     </div>
-//   </div>
-// )
-//   }
-// }
 export default withStyles(styles)(AddExpense);

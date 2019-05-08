@@ -44,6 +44,16 @@ function Profile({ ...props }) {
             <TableCell>
               <h4>
                 Latest Transactions
+                <div>
+                  {props.expenses.map(expense => {
+                    return (
+                      <div>
+                        {expense.payee}: {expense.amount} ({expense.category})
+                      </div>
+                    );
+                  })}
+                  {/*Display last 5 added expenses only*/}
+                </div>
                 {/*Display added expenses here*/}
                 {/*Display last 5 added expenses only*/}
               </h4>
