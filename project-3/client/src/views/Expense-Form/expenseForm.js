@@ -15,6 +15,7 @@ import CardFooter from "components/Card/CardFooter.jsx";
 import Style from "../../assets/jss/material-dashboard-react/views/dashboardStyle";
 import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -117,7 +118,21 @@ class AddExpense extends React.Component {
                 </GridContainer>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                    <Select />
+                    <Select
+                      value={this.state.age}
+                      onChange={this.handleChange}
+                      inputProps={{
+                        name: "age",
+                        id: "age-simple"
+                      }}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
                     <CustomInput
@@ -244,4 +259,3 @@ class AddExpense extends React.Component {
 //   }
 // }
 export default withStyles(styles)(AddExpense);
-
