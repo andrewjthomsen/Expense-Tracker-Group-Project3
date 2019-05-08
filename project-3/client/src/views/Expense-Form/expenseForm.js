@@ -17,6 +17,7 @@ import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/Input";
+import API from "../../utils/api";
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -45,6 +46,7 @@ class AddExpense extends React.Component {
       category: "",
       comment: ""
     };
+    this.addExpense = this.addExpense.bind(this);
   }
   handlePayee(e) {
     this.setState({
@@ -73,12 +75,14 @@ class AddExpense extends React.Component {
   }
   addExpense(e) {
     e.preventDefault();
+
     const payee = this.state.payee;
     const amount = this.state.amount;
     // const user = this.state.user;
     const category = this.state.category;
     const comment = this.state.comment;
     const expense = { payee, amount, category, comment };
+
     // Reset form fields
     this.setState({
       category: "",
@@ -87,7 +91,9 @@ class AddExpense extends React.Component {
       amount: "",
       comment: ""
     });
-    this.props.onNewExpense(expense);
+    //API.addExpense(this.state).then(() => {
+      this.props.onExpensesUpdated();
+    //});
     //this.props.router.push('/');
     //this.props.history.push("/");
   }
@@ -109,8 +115,10 @@ class AddExpense extends React.Component {
                     <CustomInput
                       labelText="Payee"
                       id="payee"
-                      value={this.state.payee}
-                      onChange={this.handlePayee.bind(this)}
+                      inputProps={{
+                        value: this.state.payee,
+                        onChange: this.handlePayee.bind(this)
+                      }}
                       required
                       formControlProps={{
                         fullWidth: true
@@ -133,8 +141,10 @@ class AddExpense extends React.Component {
                     <CustomInput
                       labelText="Amount"
                       id="amount"
-                      value={this.state.amount}
-                      onChange={this.handleAmount.bind(this)}
+                      inputProps={{
+                        value: this.state.amount,
+                        onChange: this.handleAmount.bind(this)
+                      }}
                       required
                       formControlProps={{
                         fullWidth: true
@@ -146,8 +156,10 @@ class AddExpense extends React.Component {
                   <GridItem xs={12} sm={12} md={6}>
                     <InputLabel htmlFor="age-helper">Category</InputLabel>
                     <Select
-                      value={this.state.category}
-                      onChange={this.handleCategory.bind(this)}
+                      inputProps={{
+                        value: this.state.category,
+                        onChange: this.handleCategory.bind(this)
+                      }}
                       input={<Input name="age" id="age-helper" />}
                     >
                       <MenuItem value="">
@@ -172,19 +184,21 @@ class AddExpense extends React.Component {
                     <CustomInput
                       labelText="comment"
                       id="comment"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
                       inputProps={{
+                        value: this.state.comment,
+                        onChange: this.handleComment.bind(this),
                         multiline: true,
                         rows: 5
+                      }}
+                      formControlProps={{
+                        fullWidth: true
                       }}
                     />
                   </GridItem>
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <Button type="submit" color="primary">
+                <Button type="submit" onClick={this.addExpense} color="primary">
                   Submit
                 </Button>
               </CardFooter>
