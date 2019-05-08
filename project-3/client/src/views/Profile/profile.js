@@ -17,7 +17,7 @@ import tableStyle from "assets/jss/material-dashboard-react/components/tableStyl
 // Add functionality to be able to add a bank. Possibly create a page where a user can
 // enter in their bank information
 function Profile({ ...props }) {
-  const { classes, tableHead, tableData, tableHeaderColor } = props;
+  const { classes,  tableHeaderColor } = props;
   return (
     // <!-- main -->
     <div>
@@ -44,16 +44,16 @@ function Profile({ ...props }) {
             <TableCell>
               <h4>
                 Latest Transactions
-                <div>
+                {/* <div>
                   {props.expenses.map(expense => {
                     return (
                       <div>
                         {expense.payee}: {expense.amount} ({expense.category})
-                      </div>
-                    );
+                      </div> */}
+                    {/* );
                   })}
                   {/*Display last 5 added expenses only*/}
-                </div>
+                {/* </div>  */}
                 {/*Display added expenses here*/}
                 {/*Display last 5 added expenses only*/}
               </h4>
