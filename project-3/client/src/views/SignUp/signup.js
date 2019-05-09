@@ -2,40 +2,46 @@ import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
 import "../../assets/css/signup.css";
-
+import TextField from '@material-ui/core/TextField';
 
 class SignUp extends React.Component {
   render() {
     return (
       <div className="main-w3layouts wrapper">
-		<h1>Creative SignUp Form</h1>
+		<h1>SignUp Form</h1>
 		<div className="main-agileinfo">
 			<div className="agileits-top">
 				<form action="#" method="post">
-          <input className="text" 
+          <TextField className="text" 
           type="text" 
           name="Username" 
           placeholder="Username"
           required="" 
+          fullWidth
           />
-          <input 
+          <TextField 
           className="text email" 
           type="email" name="email" 
           placeholder="Email"
           required="" 
+          fullWidth
           />
-          <input 
+          <TextField 
           className="text" 
           type="password" 
           name="password" 
           placeholder="Password"
-          required="" />
-          <input 
+          required="" 
+          fullWidth
+         /> 
+         <TextField 
           className="text w3lpass" 
           type="password" 
           name="password" 
           placeholder="Confirm Password"
-          required="" />
+          required="" 
+          fullWidth
+          />
           <div 
           className="wthree-text">
             <label 
@@ -48,9 +54,9 @@ class SignUp extends React.Component {
 						</label>
 						<div className="clear"> </div>
 					</div>
-					<input type="submit" value="SIGN UP" />
+					<input type="submit" value="SIGNUP" />
 				</form>
-				<p>Have an Account? <a href="/admin/signin"> SIGN IN NOW!</a></p>
+				<p>Don't have an Account? <a href="#"> Login Now!</a></p>
 			</div>
 		</div>
 		<ul className="colorlib-bubbles">
