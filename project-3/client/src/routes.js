@@ -20,8 +20,28 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 //import RTLPage from "views/RTLPage/RTLPage.jsx";
 // Group Created pages
 import Profile from "./views/Profile/profile";
+<<<<<<< HEAD
+import ExepenseForm from "./views/Expense-Form/expenseForm";
+import SignUp from "./views/SignUp/signup";
+import SignIn from "./views/SignIn/SignIn"
+=======
 import ExpenseForm from "./views/Expense-Form/expenseForm";
+>>>>>>> fa3d94578b0f367d7efc4b2af0311e675e48726d
 const dashboardRoutes = [
+  {
+    path: "/signin",
+    name: "Sign In",
+    icon: Dashboard,
+    component: SignIn,
+    layout: "/admin"
+  },
+  {
+    path: "/signup",
+    name: "Sign Up",
+    icon: Dashboard,
+    component: SignUp,
+    layout: "/admin"
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
