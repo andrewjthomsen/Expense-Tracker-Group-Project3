@@ -2,7 +2,7 @@ import * as React from "react";
 // import { Router } from 'react-router'
 // stateless functional component that returns html (jsx)
 import "../../assets/css/signup.css";
-
+import TextField from '@material-ui/core/TextField';
 
 class SignUp extends React.Component {
   render() {
@@ -12,21 +12,23 @@ class SignUp extends React.Component {
 		<div className="main-agileinfo">
 			<div className="agileits-top">
 				<form action="#" method="post">
-          <input className="text" 
+          <TextField  className="text" 
           type="text" 
           name="Username" 
           placeholder="Username"
-          required="" 
+					required="" 
+					fullWidth
           />
          
-          <input 
+          <TextField 
           className="text" 
           type="password" 
           name="password" 
           placeholder="Password"
-          required="" />
-       
-          <div 
+          required="" 
+        	fullWidth
+         /> 
+				 <div 
           className="wthree-text">
             
 						<div className="clear"> </div>
