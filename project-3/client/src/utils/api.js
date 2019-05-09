@@ -13,7 +13,7 @@ export default {
 
   // Add new expense
   addExpense: function(expenseData) {
-    console.log(expenseData);
+    // console.log(expenseData);
     return axios.post("/api/expenses", expenseData);
   },
 
