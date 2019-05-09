@@ -27,3 +27,11 @@
     flex: 1;
     outline: 1px solid rgb(90, 88, 88);
 }
+
+.clear-btn:hover {
+    cursor: pointer;
+}
+
+.button-wrapper:hover {
+    cursor: pointer;
+}
