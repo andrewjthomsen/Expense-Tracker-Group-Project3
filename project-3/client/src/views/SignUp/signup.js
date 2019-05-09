@@ -18,22 +18,39 @@ class SignUp extends React.Component {
           placeholder="Username"
           required="" 
           />
-         
+          <input 
+          className="text email" 
+          type="email" name="email" 
+          placeholder="Email"
+          required="" 
+          />
           <input 
           className="text" 
           type="password" 
           name="password" 
           placeholder="Password"
           required="" />
-       
+          <input 
+          className="text w3lpass" 
+          type="password" 
+          name="password" 
+          placeholder="Confirm Password"
+          required="" />
           <div 
           className="wthree-text">
-            
+            <label 
+            className="anim">
+              <input 
+              type="checkbox" 
+              className="checkbox" 
+              required="" />
+							<span>I Agree To The Terms and Conditions</span>
+						</label>
 						<div className="clear"> </div>
 					</div>
-					<input type="submit" value="SIGN IN" />
+					<input type="submit" value="SIGN UP" />
 				</form>
-				<p>Don't have an Account? <a href="/admin/signup"> Register!</a></p>
+				<p>Have an Account? <a href="/admin/signin"> SIGN IN NOW!</a></p>
 			</div>
 		</div>
 		<ul className="colorlib-bubbles">

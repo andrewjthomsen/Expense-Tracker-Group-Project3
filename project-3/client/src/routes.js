@@ -21,14 +21,21 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 // Group Created pages
 import Profile from "./views/Profile/profile";
 import ExepenseForm from "./views/Expense-Form/expenseForm";
-import SignIn from "./views/SignIn/SignIn";
-
+import SignUp from "./views/SignUp/signup";
+import SignIn from "./views/SignIn/SignIn"
 const dashboardRoutes = [
   {
     path: "/signin",
-    name: "SignIn",
+    name: "Sign In",
     icon: Dashboard,
     component: SignIn,
+    layout: "/admin"
+  },
+  {
+    path: "/signup",
+    name: "Sign Up",
+    icon: Dashboard,
+    component: SignUp,
     layout: "/admin"
   },
   {
