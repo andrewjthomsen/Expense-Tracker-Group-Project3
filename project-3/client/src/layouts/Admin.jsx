@@ -34,14 +34,21 @@ class Dashboard extends React.Component {
     };
     this.refreshExpenses = this.refreshExpenses.bind(this);
   }
-  refreshExpenses = function() {
-    API.getExpenses().then((response) => {
-      this.setState({
-        expenses: response
-      });
-      console.log('Refreshed expenses.');
-    });
-  };
+  // refreshExpenses = function() {
+  //   API.getExpenses().then((response) => {
+  //     this.setState({
+  //       expenses: response
+  //     });
+  //     console.log('Refreshed expenses.');
+  //   });
+  // };
+  refreshExpenses(expense) {
+    //API.addExpense(expense);
+    var newExpenses = this.state.expenses;
+    newExpenses.push(expense);
+    this.setState({ expenses: newExpenses });
+    console.log("Make an API request, blah blah blah...");
+  }
   handleImageClick = image => {
     this.setState({ image: image });
   };

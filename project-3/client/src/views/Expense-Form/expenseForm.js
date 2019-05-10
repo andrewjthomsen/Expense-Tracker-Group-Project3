@@ -41,7 +41,7 @@ class AddExpense extends React.Component {
     super(props);
     this.state = {
       payee: "",
-      user: "",
+      // user: "",
       amount: "",
       category: "",
       comment: ""
@@ -91,9 +91,9 @@ class AddExpense extends React.Component {
       amount: "",
       comment: ""
     });
-    //API.addExpense(this.state).then(() => {
-      this.props.onExpensesUpdated();
-    //});
+    // API.addExpense(this.state).then(() => {
+      // this.props.onNewExpense(expense);
+    // });
     //this.props.router.push('/');
     //this.props.history.push("/");
   }
