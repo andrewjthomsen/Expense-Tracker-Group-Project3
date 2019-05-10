@@ -123,23 +123,6 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardHeader color="info" stats icon>
-                <CardIcon color="info">
-                  <Accessibility />
-                </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
-              </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <Update />
-                  Just Updated
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
         </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
@@ -148,7 +131,7 @@ class Dashboard extends React.Component {
                 <ChartistGraph
                   className="ct-chart"
                   data={dailySalesChart.data}
-                  type="Line"
+                  type="Pie"
                   options={dailySalesChart.options}
                   listener={dailySalesChart.animation}
                 />
