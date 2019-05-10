@@ -20,7 +20,6 @@ import SignIn from "./views/SignIn/SignIn";
 import ExpenseForm from "./views/Expense-Form/expenseForm";
 
 const dashboardRoutes = [
-
   {
     path: "/signin",
     name: "Sign In",
