@@ -11,21 +11,24 @@ const expenseSchema = new mongoose.Schema({
             ref: "User",
             required: true
         },
-        payee: {
-            type: String,
-            required: true
-        },
-        amount: {
-            type: Number,
-            required: true
-        },
-        category: {
-            type: String,
-            required: true
-        },
-        comment: {
-            type: String
-        }
+        expense: [{
+            payee: {
+                type: String,
+                required: true
+            },
+            amount: {
+                type: Number,
+                required: true
+            },
+            category: {
+                type: String,
+                required: true
+            },
+            comment: {
+                type: String
+            }
+        }]
+        
     
 }, { strict: false});
 
