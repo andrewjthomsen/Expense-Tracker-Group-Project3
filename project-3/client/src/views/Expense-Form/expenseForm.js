@@ -17,7 +17,8 @@ import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/Input";
-import API from "../../utils/api";
+// import Expense from "../../../../models/expense";
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -37,66 +38,60 @@ const styles = {
   }
 };
 class AddExpense extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      payee: "",
-      user: "",
-      amount: "",
-      category: "",
-      comment: ""
-    };
-    this.addExpense = this.addExpense.bind(this);
-  }
-  handlePayee(e) {
+  state = {
+    expense: [{
+        payee: "",
+        user: "",
+        amount: "",
+        category: "",
+        comment: ""
+      }]  
+  };
+  handleExpense(e) {
+    e.preventDefault();
     this.setState({
-      payee: e.target.value
+      expense: [
+        {
+          payee: e.target.value,
+          amount: e.target.value,
+          category: e.target.value,
+          comment: e.target.value,
+          user: e.target.value
+        }
+      ]
     });
-  }
+  };
+
   // handleUser(e) {
   //   this.setState({
   //     user: e.target.value
   //   });
   // }
-  handleAmount(e) {
-    this.setState({
-      amount: e.target.value
-    });
-  }
-  handleCategory(e) {
-    this.setState({
-      category: e.target.value
-    });
-  }
-  handleComment(e) {
-    this.setState({
-      comment: e.target.value
-    });
-  }
+
   addExpense(e) {
-    e.preventDefault();
+    this.setState((prevState) => ({
+      expense: [...prevState.expense, {payee:"", amount:"", category:"", comment:""}]
+    }));
 
-    const payee = this.state.payee;
-    const amount = this.state.amount;
-    // const user = this.state.user;
-    const category = this.state.category;
-    const comment = this.state.comment;
-    const expense = { payee, amount, category, comment };
+    // e.preventDefault();
 
-    // Reset form fields
-    this.setState({
-      category: "",
-      payee: "",
-      // user: "",
-      amount: "",
-      comment: ""
-    });
-    //API.addExpense(this.state).then(() => {
-      this.props.onExpensesUpdated();
-    //});
-    //this.props.router.push('/');
-    //this.props.history.push("/");
+    // const payee = this.state.payee;
+    // const amount = this.state.amount
+    // const category = this.state.category;
+    // const comment = this.state.comment;
+    // // Reset form fields
+    // this.setState({
+    //   category: "",
+    //   payee: "",
+    //   // user: "",
+    //   amount: "",
+    //   comment: ""
   }
+  //API.addExpense(this.state).then(() => {
+  //this.props.onExpensesUpdated();
+  //});
+  //this.props.router.push('/');
+  //this.props.history.push("/");
   render(props) {
     return (
       <div>
@@ -116,7 +111,7 @@ class AddExpense extends React.Component {
                       labelText="Payee"
                       id="payee"
                       inputProps={{
-                        value: this.state.payee,
+                        value: this.state.expense.payee,
                         onChange: this.handlePayee.bind(this)
                       }}
                       required
@@ -230,4 +225,5 @@ class AddExpense extends React.Component {
     );
   }
 }
+
 export default withStyles(styles)(AddExpense);
