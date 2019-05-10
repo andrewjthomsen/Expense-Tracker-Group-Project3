@@ -46,7 +46,7 @@ class AddExpense extends React.Component {
         category: "",
         comment: ""
       }]  
-  }
+  };
   handleExpense(e) {
     e.preventDefault();
     this.setState({
@@ -60,7 +60,7 @@ class AddExpense extends React.Component {
         }
       ]
     });
-  }
+  };
 
   // handleUser(e) {
   //   this.setState({
@@ -71,7 +71,7 @@ class AddExpense extends React.Component {
   addExpense(e) {
     this.setState((prevState) => ({
       expense: [...prevState.expense, {payee:"", amount:"", category:"", comment:""}]
-    }))
+    }));
 
     // e.preventDefault();
 
@@ -86,13 +86,12 @@ class AddExpense extends React.Component {
     //   // user: "",
     //   amount: "",
     //   comment: ""
-    }
-    //API.addExpense(this.state).then(() => {
-    //this.props.onExpensesUpdated();
-    //});
-    //this.props.router.push('/');
-    //this.props.history.push("/");
   }
+  //API.addExpense(this.state).then(() => {
+  //this.props.onExpensesUpdated();
+  //});
+  //this.props.router.push('/');
+  //this.props.history.push("/");
   render(props) {
     return (
       <div>
@@ -226,4 +225,5 @@ class AddExpense extends React.Component {
     );
   }
 }
+
 export default withStyles(styles)(AddExpense);
