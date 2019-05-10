@@ -64,11 +64,10 @@ class Dashboard extends React.Component {
                 </CardIcon>
                 <p className={classes.cardCategory}>Total Expenses</p>
 
-              {/* Calculate the Total Expenses */}
+                {/* Calculate the Total Expenses */}
                 <h3 className={classes.cardTitle}>
                   49/50 <small>GB</small>
                 </h3>
-              
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -112,7 +111,7 @@ class Dashboard extends React.Component {
 
                 <p className={classes.cardCategory}>Credit Score</p>
 
-               {/* Ask Alex how to get Credit Score info????  */}
+                {/* Ask Alex how to get Credit Score info????  */}
 
                 <h3 className={classes.cardTitle}>750</h3>
               </CardHeader>
@@ -265,8 +264,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={6}>
             <Card>
               <CardHeader color="warning">
-
-              {/* Append Current Expenses */}
+                {/* Append Current Expenses */}
 
                 <h4 className={classes.cardTitleWhite}>Expenses</h4>
                 <p className={classes.cardCategoryWhite}>
