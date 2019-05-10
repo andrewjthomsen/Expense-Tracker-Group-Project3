@@ -39,15 +39,18 @@ const styles = {
 };
 class AddExpense extends React.Component {
   state = {
-    expense: [{
+    expense: [
+      {
         payee: "",
         user: "",
         amount: "",
         category: "",
         comment: ""
-      }]  
+      }
+    ]
   };
-  handleExpense(e) {
+
+  handleExpense = e => {
     e.preventDefault();
     this.setState({
       expense: [
@@ -61,38 +64,26 @@ class AddExpense extends React.Component {
       ]
     });
   };
-
-  // handleUser(e) {
+  // handleExpense(e) {
+  //   e.preventDefault();
   //   this.setState({
-  //     user: e.target.value
+  //     expense: [
+  //       {
+  //         payee: e.target.value,
+  //         amount: e.target.value,
+  //         category: e.target.value,
+  //         comment: e.target.value,
+  //         user: e.target.value
+  //       }
+  //     ]
   //   });
   // }
-
-  addExpense(e) {
-    this.setState((prevState) => ({
-      expense: [...prevState.expense, {payee:"", amount:"", category:"", comment:""}]
-    }));
-
-    // e.preventDefault();
-
-    // const payee = this.state.payee;
-    // const amount = this.state.amount
-    // const category = this.state.category;
-    // const comment = this.state.comment;
-    // // Reset form fields
-    // this.setState({
-    //   category: "",
-    //   payee: "",
-    //   // user: "",
-    //   amount: "",
-    //   comment: ""
-  }
-  //API.addExpense(this.state).then(() => {
-  //this.props.onExpensesUpdated();
-  //});
-  //this.props.router.push('/');
-  //this.props.history.push("/");
-  render(props) {
+  // Refresh state
+  addExpense = (e) => {
+    // API CALL TO EXPENSE INFO TO DATABASE
+    // RE-RENDER EXPENSE FORM
+  };
+  render() {
     return (
       <div>
         <GridContainer>
@@ -112,7 +103,7 @@ class AddExpense extends React.Component {
                       id="payee"
                       inputProps={{
                         value: this.state.expense.payee,
-                        onChange: this.handlePayee.bind(this)
+                        onChange: this.handleExpense
                       }}
                       required
                       formControlProps={{
@@ -120,25 +111,13 @@ class AddExpense extends React.Component {
                       }}
                     />
                   </GridItem>
-                  {/* <GridItem xs={12} sm={12} md={5}>
-                    <CustomInput
-                      labelText="User"
-                      id="user"
-                      value={this.state.user}
-                      onChange={this.handleUser.bind(this)}
-                      required
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
-                  </GridItem> */}
                   <GridItem xs={12} sm={12} md={5}>
                     <CustomInput
                       labelText="Amount"
                       id="amount"
                       inputProps={{
-                        value: this.state.amount,
-                        onChange: this.handleAmount.bind(this)
+                        value: this.state.expense.amount,
+                        onChange: this.handleExpense
                       }}
                       required
                       formControlProps={{
@@ -153,7 +132,7 @@ class AddExpense extends React.Component {
                     <Select
                       inputProps={{
                         value: this.state.category,
-                        onChange: this.handleCategory.bind(this)
+                        onChange: this.handleExpense
                       }}
                       input={<Input name="age" id="age-helper" />}
                     >
@@ -181,7 +160,7 @@ class AddExpense extends React.Component {
                       id="comment"
                       inputProps={{
                         value: this.state.comment,
-                        onChange: this.handleComment.bind(this),
+                        onChange: this.handleExpense,
                         multiline: true,
                         rows: 5
                       }}
@@ -206,18 +185,6 @@ class AddExpense extends React.Component {
                   <img src={avatar} alt="..." />
                 </a>
               </CardAvatar>
-              {/* <CardBody profile>
-                <h6 className={Style.cardCategory}>CEO / CO-FOUNDER</h6>
-                <h4 className={Style.cardTitle}>Alec Thompson</h4>
-                <p className={Style.description}>
-                  Don't be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
-                </p>
-                <Button color="primary" round>
-                  Follow
-                </Button>
-              </CardBody> */}
             </Card>
           </GridItem>
         </GridContainer>
