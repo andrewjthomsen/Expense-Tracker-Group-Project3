@@ -3,8 +3,20 @@ import * as React from "react";
 // stateless functional component that returns html (jsx)
 import "../../assets/css/signup.css";
 import TextField from "@material-ui/core/TextField";
+import API from "../../utils/api";
 
 class SignUp extends React.Component {
+  state = {
+    userName: "",
+    email: "",
+    confirmPassword: ""
+  };
+  // may need to do a bind here like in expenseform
+  // handleInputChange(e) {
+  //   this.setState({
+  //     userName: e.
+  //   })
+  // }
   render() {
     return (
       <div className="main-w3layouts wrapper">
@@ -39,7 +51,7 @@ class SignUp extends React.Component {
               <TextField
                 className="text w3lpass"
                 type="password"
-                name="password"
+                name="confirmPassword"
                 placeholder="Confirm Password"
                 required=""
                 fullWidth
