@@ -18,6 +18,9 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/Input";
 // import Expense from "../../../../models/expense";
+// AXIOS
+// import axios from "axios";
+import API from "../../routes/api/api";
 
 const styles = {
   cardCategoryWhite: {
@@ -79,8 +82,10 @@ class AddExpense extends React.Component {
   //   });
   // }
   // Refresh state
-  addExpense = (e) => {
+  addExpense = e => {
+    e.preventDefault();
     // API CALL TO EXPENSE INFO TO DATABASE
+    API.addExpense();
     // RE-RENDER EXPENSE FORM
   };
   render() {

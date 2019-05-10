@@ -25,9 +25,9 @@ module.exports = {
   // Create a new expense
   create: function(req, res) {
     // TO DO: fill in code for creating a new expense
-    console.log("db TEST", db)
+    console.log("req.body TEST", req.body)
     db.models.Expense
-      .create()
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
