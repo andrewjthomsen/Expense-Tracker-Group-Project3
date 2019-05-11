@@ -19,7 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/Input";
 // import Expense from "../../../../models/expense";
 // AXIOS
-// import axios from "axios";
+import axios from "axios";
 import API from "../../routes/api/api";
 const styles = {
   cardCategoryWhite: {
@@ -92,12 +92,14 @@ class AddExpense extends React.Component {
     const obj = {
       payee: this.state.payee,
       amount: this.state.amount,
+      category: this.state.category,
       comment: this.state.comment
     };
     // axios
     //   .post("http://localhost:3000/admin/expenseform/add", obj)
     //   .then(res => console.log(res.data));
     console.log(obj);
+    console.log(API.addExpense(obj));
     API.addExpense(obj).then(res => console.log(res.data));
 
     this.setState({
