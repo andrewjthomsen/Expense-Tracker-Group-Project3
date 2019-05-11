@@ -5,7 +5,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/api/api");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -32,7 +32,8 @@ const models = require("./models/");
 //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 // });
 
-app.use(routes);
+
+app.use("/admin", models);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

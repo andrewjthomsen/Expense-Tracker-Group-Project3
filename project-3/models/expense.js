@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 
 const expenseSchema = new mongoose.Schema(
   {
-    createdAt: {
-      type: Date,
-      required: true,
-      default: new Date()
-    },
-    User: {
-      type: String,
-      ref: "User",
-      required: true
-    },
+    // createdAt: {
+    //   type: Date,
+    //   required: true,
+    //   default: new Date()
+    // },
+    // User: {
+    //   type: String,
+    //   ref: "User",
+    //   required: true
+    // },
     expense: [
       {
         payee: {
