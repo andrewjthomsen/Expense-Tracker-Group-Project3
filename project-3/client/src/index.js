@@ -21,7 +21,7 @@ ReactDOM.render(
       {/* <Route exact path="/signin" component={SignIn} /> */}
       {/* <Route exact path="/signup" component={SignUp} /> */}
       {/* <Route exact path="/ExpenseForm" render={props => <AddExpense />} /> */}
-      <Redirect from="/" to="/admin/dashboard" />
+      {/* <Redirect from="/" to="/admin/dashboard" /> */}
     </Switch>
   </Router>,
   document.getElementById("root")
