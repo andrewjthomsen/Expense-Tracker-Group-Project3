@@ -1,41 +1,24 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const UserSchema = new mongoose.Schema({
-  
+// Create Schema
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
-    unique: true,
-    required: true,
-    trim: true
+    required: true
   },
-  
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true
-  },
-  
   password: {
     type: String,
-    required: true,
+    required: true
   },
-
-  expenses: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Expense'
-  }] 
+  date: {
+    type: Date,
+    default: Date.now
+  }
+  
   
 });
-
-UserSchema.pre('save', function(next){
-  this.password = bcrypt.hashSync(this.password, saltRounds);
-  next();
-});
-
-
-const User = mongoose.model("User", UserSchema);
-
-module.exports = User;
-// TODO
-// NEED TO create user database and be able to recognize which user is logged in****
+module.exports = User = mongoose.model("users", UserSchema);

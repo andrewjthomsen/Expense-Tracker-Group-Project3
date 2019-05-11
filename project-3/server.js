@@ -1,11 +1,20 @@
 const express = require("express");
-
+const passport = require("passport");
 const path = require("path");
+const bodyParser = require("body-parser");
+const userAPI = require("./routes/api/userAPI");
 // const router = require("express").Router();
-const PORT = process.env.PORT || 3001;
+//const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -14,12 +23,28 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-mongoose.connect(
-  process.env.MONGODB_URI ||  "mongodb://localhost/expensetracker"
-)
+
+// DB Config
+const db = require("./config/keys").mongoURI;
+
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
 
 // Define API routes here
 const models = require("./models/");
+
+  // Passport middleware
+  app.use(passport.initialize());
+  // Passport config
+  require("./config/passport")(passport);
+  // Routes
+  app.use("/api/users", userAPI)
+  const PORT = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 // Send every other request to the React app
 // Define any API routes before this runs
