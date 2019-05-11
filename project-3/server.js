@@ -15,8 +15,7 @@ app.use(
     extended: false
   })
 );
-// DB Config
-const db = require("./config/keys").mongoURI;
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,6 +23,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// DB Config
+const db = require("./config/keys").mongoURI;
+
 mongoose
   .connect(
     db,
@@ -40,7 +43,7 @@ const models = require("./models/");
   // Passport config
   require("./config/passport")(passport);
   // Routes
-  app.use("/api", userAPI)
+  app.use("/api/users", userAPI)
   const PORT = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 // Send every other request to the React app
