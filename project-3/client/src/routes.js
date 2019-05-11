@@ -68,25 +68,20 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin"
   },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: LibraryBooks,
-    component: Typography,
-    layout: "/admin"
-  },
+  
+    
   {
     path: "/icons",
     name: "Icons",
     icon: BubbleChart,
-    component: Icons,
+    // component: Icons,
     layout: "/admin"
   },
   {
     path: "/notifications",
     name: "Notifications",
     icon: Notifications,
-    component: NotificationsPage,
+    // component: NotificationsPage,
     layout: "/admin"
   }
 ];
