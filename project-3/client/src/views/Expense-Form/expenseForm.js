@@ -88,7 +88,7 @@ class AddExpense extends React.Component {
   // }
   onSubmit(e) {
     e.preventDefault();
-    console.log(`The values are ${this.state.payee}, ${this.state.amount}, and ${this.state.comment}`)
+    // console.log(`The values are ${this.state.payee}, ${this.state.amount}, and ${this.state.comment}`)
     const obj = {
       payee: this.state.payee,
       amount: this.state.amount,
@@ -97,8 +97,8 @@ class AddExpense extends React.Component {
     // axios
     //   .post("http://localhost:3000/admin/expenseform/add", obj)
     //   .then(res => console.log(res.data));
-    API.addExpense(obj)
-    .then(res => console.log(res.data));
+    console.log(obj);
+    API.addExpense(obj).then(res => console.log(res.data));
 
     this.setState({
       payee: "",
