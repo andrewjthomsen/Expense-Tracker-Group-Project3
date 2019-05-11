@@ -94,7 +94,6 @@ class RTL extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={"الإبداعية تيم"}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}

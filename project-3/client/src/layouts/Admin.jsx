@@ -14,27 +14,12 @@ import Sidebar from "components/Sidebar/Sidebar.jsx";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 
 import routes from "routes.js";
+import API from '../utils/api';
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
-
-const switchRoutes = (
-  <Switch>
-    {routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        );
-      }
-    })}
-  </Switch>
-);
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -44,9 +29,19 @@ class Dashboard extends React.Component {
       color: "blue",
       hasImage: true,
       fixedClasses: "dropdown show",
-      mobileOpen: false
+      mobileOpen: false,
+      expenses: []
     };
+    this.refreshExpenses = this.refreshExpenses.bind(this);
   }
+  refreshExpenses = function() {
+    API.getExpenses().then((response) => {
+      this.setState({
+        expenses: response
+      });
+      console.log('Refreshed expenses.');
+    });
+  };
   handleImageClick = image => {
     this.setState({ image: image });
   };
@@ -76,6 +71,7 @@ class Dashboard extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
+    this.refreshExpenses();
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
@@ -94,7 +90,7 @@ class Dashboard extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={"Creative Tim"}
+          logoText={"Affluent"}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
@@ -109,19 +105,25 @@ class Dashboard extends React.Component {
             {...rest}
           />
           {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-          {this.getRoute() ? (
-            <div className={classes.content}>
-              <div className={classes.container}>{switchRoutes}</div>
+          <div className={classes.content}>
+            <div className={classes.container}>
+              <Switch>
+                {routes.map((prop, key) => {
+                  if (prop.layout === "/admin") {
+                    return (
+                      <Route
+                        path={prop.layout + prop.path}
+                        render={ (props) => <prop.component {...props} onExpensesUpdated={this.refreshExpenses} />}
+                        key={key}
+                      />
+                    );
+                  }
+                })}
+              </Switch>
             </div>
-          ) : (
-            <div className={classes.map}>{switchRoutes}</div>
-          )}
+          </div>
           {this.getRoute() ? <Footer /> : null}
           <FixedPlugin
-            handleImageClick={this.handleImageClick}
-            handleColorClick={this.handleColorClick}
-            bgColor={this.state["color"]}
-            bgImage={this.state["image"]}
             handleFixedClick={this.handleFixedClick}
             fixedClasses={this.state.fixedClasses}
           />

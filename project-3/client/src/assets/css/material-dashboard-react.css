@@ -48,7 +48,7 @@ html * {
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background-color: linear-gradient(to top, #fffb20, rgb(3, 2, 2));
+  background: linear-gradient(to top, #fffb20, rgb(3, 2, 2));
   color: #3c4858;
   margin: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -99,7 +99,7 @@ h6 {
 
 body {
   background-color: linear-gradient(to top, #fffb20, rgb(3, 2, 2));
-  color: #ffe600;
+  color: #000000;
 }
 
 blockquote p {
@@ -119,13 +119,13 @@ h6 {
 }
 
 a {
-  color: #9c27b0;
+  color: #740000;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #89229b;
+  color: #9b4822;
   text-decoration: none;
 }
 

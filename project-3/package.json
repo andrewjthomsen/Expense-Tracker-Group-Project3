@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "axios": "^0.18.0",
     "babel": "^6.23.0",
     "barbel": "0.0.9",
     "express": "^4.16.3",
