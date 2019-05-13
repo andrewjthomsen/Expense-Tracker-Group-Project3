@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import SignUp from "./views/SignUp/signup";
 import SignIn from "./views/SignIn/SignIn";
-// import AddExpense from "./components/Expense-Form/expenseForm";
+import expenseForm from "../src/components/Expense-Form/expenseForm";
 
 import store from "./store";
 import Admin from "layouts/Admin.jsx";
@@ -16,17 +16,17 @@ import "assets/css/material-dashboard-react.css?v=1.6.0";
 const hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Provider store ={store}>
-  <Router history={hist}>
-    <Switch>
-      <Route path="/admin" component={Admin} />
-      <Route path="/rtl" component={RTL} />
-      <Route exact path="/signin" component={SignIn} />
-      <Route exact path="/signup" component={SignUp} />
-      {/* <Route exact path="/ExpenseForm" render={props => <AddExpense />} /> */}
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-  </Router>
+  <Provider store={store}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/admin" component={Admin} />
+        <Route path="/rtl" component={RTL} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/expenseForm" component={expenseForm} />
+        <Redirect from="/" to="/admin/dashboard" />
+      </Switch>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

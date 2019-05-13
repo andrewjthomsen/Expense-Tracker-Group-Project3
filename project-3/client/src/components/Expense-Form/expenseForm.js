@@ -16,7 +16,7 @@ import Style from "../../assets/jss/material-dashboard-react/views/dashboardStyl
 import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Input from "@material-ui/core/Input";
+// import Input from "@material-ui/core/Input";
 // import Expense from "../../../../models/expense";
 // AXIOS
 // import axios from "axios";
@@ -42,50 +42,33 @@ const styles = {
 };
 class AddExpense extends React.Component {
   state = {
-    expense: [
-      {
-        payee: "",
-        user: "",
-        amount: "",
-        category: "",
-        comment: ""
-      }
-    ]
+    expense: {
+      payee: "",
+      user: "",
+      amount: "",
+      category: "",
+      comment: ""
+    }
   };
 
   handleExpense = e => {
     e.preventDefault();
     this.setState({
-      expense: [
-        {
-          payee: e.target.value,
-          amount: e.target.value,
-          category: e.target.value,
-          comment: e.target.value,
-          user: e.target.value
-        }
-      ]
+      expense: {
+        payee: e.target.value,
+        amount: e.target.value,
+        category: e.target.value,
+        comment: e.target.value,
+        user: e.target.value
+      }
     });
   };
-  // handleExpense(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     expense: [
-  //       {
-  //         payee: e.target.value,
-  //         amount: e.target.value,
-  //         category: e.target.value,
-  //         comment: e.target.value,
-  //         user: e.target.value
-  //       }
-  //     ]
-  //   });
-  // }
   // Refresh state
   addExpense = e => {
     e.preventDefault();
+    handleExpense();
     // API CALL TO EXPENSE INFO TO DATABASE
-    API.addExpense();
+    API.addExpense(state);
     // RE-RENDER EXPENSE FORM
   };
   render() {
@@ -139,11 +122,7 @@ class AddExpense extends React.Component {
                         value: this.state.category,
                         onChange: this.handleExpense
                       }}
-                      input={<Input name="age" id="age-helper" />}
                     >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
                       <MenuItem value={"books"}>Books</MenuItem>
                       <MenuItem value={"clothes"}>Clothes</MenuItem>
                       <MenuItem value={"electricity"}>Electricity</MenuItem>

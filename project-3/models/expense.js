@@ -14,10 +14,6 @@ const expenseSchema = new mongoose.Schema(
     },
     expense: [
       {
-        payee: {
-          type: String,
-          required: true
-        },
         UserId: {
             type: String,
             ref: "User",

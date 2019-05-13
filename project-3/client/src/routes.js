@@ -15,9 +15,9 @@ import TableList from "views/TableList/TableList.jsx";
 //import RTLPage from "views/RTLPage/RTLPage.jsx";
 // Group Created pages
 import Profile from "./views/UserProfile/UserProfile";
-// import ExpenseForm from "./views/Expense-Form/expenseForm";
 import SignUp from "./views/SignUp/signup";
-import SignIn from "./views/SignIn/SignIn"
+import SignIn from "./views/SignIn/SignIn";
+import ExpenseForm from "./components/Expense-Form/expenseForm";
 const dashboardRoutes = [
   {
     path: "/signin",
@@ -51,7 +51,7 @@ const dashboardRoutes = [
     path: "/expenseForm",
     name: "Expense Form",
     icon: "table_chart",
-    // component: ExpenseForm,
+    component: ExpenseForm,
     layout: "/admin"
   },
   {
@@ -68,8 +68,7 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin"
   },
-  
-    
+
   {
     path: "/icons",
     name: "Icons",
