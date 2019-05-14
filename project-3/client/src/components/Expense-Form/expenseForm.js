@@ -98,7 +98,7 @@ class AddExpense extends React.Component {
     };
     console.log(expenseData);
     axios
-      .post("http://localhost:4000/admin/expenseForm", expenseData)
+      .post("http://localhost:5000/admin/expenseForm", expenseData)
       .then(res => console.log(res.data));
     this.setState({
       payee: "",
