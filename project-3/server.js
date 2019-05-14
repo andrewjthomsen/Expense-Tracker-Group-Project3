@@ -63,7 +63,7 @@ const models = require("./models/");
   // Routes
   app.use("/api/users", userAPI)
 
-  const PORT = 4000; // process.env.port is Heroku's port if you choose to deploy the app there
+  const PORT = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 app.use(routes);
 app.use("/expenses",expenseAPI);
