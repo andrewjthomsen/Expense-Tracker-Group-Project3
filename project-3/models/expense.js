@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-
-const expenseSchema = new mongoose.Schema(
-  {
+const Schema = mongoose.Schema;
+const expenseSchema = new Schema({
     createdAt: {
       type: Date,
       required: true,
@@ -33,10 +32,10 @@ const expenseSchema = new mongoose.Schema(
     comment: {
       type: String
     }
-  },
-
-  { strict: false }
-);
+  },{
+  collection: "expense"
+  // { strict: false }
+  });
 
 const Expense = mongoose.model("Expense", expenseSchema);
 
