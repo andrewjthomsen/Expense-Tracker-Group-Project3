@@ -19,7 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 // import Input from "@material-ui/core/Input";
 // import Expense from "../../../../models/expense";
 // AXIOS
-// import axios from "axios";
+import axios from "axios";
 import API from "../../routes/api/api";
 
 const styles = {
@@ -41,24 +41,19 @@ const styles = {
   }
 };
 class AddExpense extends React.Component {
-  // state = {
-  //   expense: {
-  //     payee: "",
-  //     amount: "",
-  //     category: "",
-  //     comment: ""
-  //   }
-  // };
   constructor(props) {
     super(props);
+    this.handlePayee = this.handlePayee.bind(this);
+    this.handleAmount = this.handleAmount.bind(this);
+    this.handleCategory = this.handleCategory.bind(this);
+    this.handleComment = this.handleComment.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       payee: "",
       amount: "",
       category: "",
       comment: ""
     };
-
-    this.handleCategory = this.handleCategory.bind(this);
   }
 
   handlePayee = e => {
@@ -102,17 +97,20 @@ class AddExpense extends React.Component {
       comment: this.state.comment
     };
     console.log(expenseData);
-    // axios
-    //   .post(
-    //     "http://localhost:4000/todos/update/" + this.props.match.params.id,
-    //     obj
-    //   )
-    //   .then(res => console.log(res.data));
+    axios
+      .post("http://localhost:4000/admin/expenseForm", expenseData)
+      .then(res => console.log(res.data));
+    this.setState({
+      payee: "",
+      amount: "",
+      category: "",
+      comment: ""
+    });
   }
 
   render() {
     return (
-      <div>
+      <form onSubmit={this.onSubmit}>
         <GridContainer>
           <GridItem xs={12} sm={12} md={8}>
             <Card>
@@ -130,7 +128,7 @@ class AddExpense extends React.Component {
                         labelText="Payee"
                         id="payee"
                         inputProps={{
-                          value: this.state.expense.payee,
+                          value: this.state.payee,
                           onChange: this.handlePayee
                         }}
                         required
@@ -146,7 +144,7 @@ class AddExpense extends React.Component {
                         labelText="Amount"
                         id="amount"
                         inputProps={{
-                          value: this.state.expense.amount,
+                          value: this.state.amount,
                           onChange: this.handleAmount
                         }}
                         required
@@ -199,7 +197,7 @@ class AddExpense extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <Button type="submit" onClick={this.onSubmit} color="primary">
+                <Button type="submit" color="primary">
                   Submit
                 </Button>
               </CardFooter>
@@ -215,7 +213,7 @@ class AddExpense extends React.Component {
             </Card>
           </GridItem>
         </GridContainer>
-      </div>
+      </form>
     );
   }
 }

@@ -7,36 +7,34 @@ const expenseSchema = new mongoose.Schema(
       required: true,
       default: new Date()
     },
-    User: {
+    // User: {
+    //   type: String,
+    //   ref: "User",
+    //   required: true
+    // },
+
+    UserId: {
       type: String,
       ref: "User",
       required: true
     },
-    expense: [
-      {
-        UserId: {
-            type: String,
-            ref: "User",
-            required: true
-        },
-        payee: {
-            type: String,
-            required: true
-        },
-        amount: {
-          type: Number,
-          required: true
-        },
-        category: {
-          type: String,
-          required: true
-        },
-        comment: {
-          type: String
-        }
-      }
-    ]
+    payee: {
+      type: String,
+      required: true
+    },
+    amount: {
+      type: Number,
+      required: true
+    },
+    category: {
+      type: String,
+      required: true
+    },
+    comment: {
+      type: String
+    }
   },
+
   { strict: false }
 );
 
