@@ -47,7 +47,7 @@ render() {
     const { errors } = this.state;
     return (
       <div className="main-w3layouts wrapper">
-		<h1>Creative SignUp Form</h1>
+		<h1>Sign In</h1>
 		<div className="main-agileinfo">
 			<div className="agileits-top">
 			<form noValidate onSubmit={this.onSubmit}>
@@ -100,7 +100,7 @@ render() {
                 </button>
               </div>
             </form>
-				<p>Don't have an Account? <a href="/admin/signup"> Register!</a></p>
+				<p>Don't have an Account? <a href="/signup"> Register!</a></p>
 			</div>
 		</div>
 		<ul className="colorlib-bubbles">
