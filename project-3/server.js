@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require("cors");
 
+const expenseAPI = require("./routes/api/expenseAPI");
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -43,9 +44,11 @@ const models = require("./models/");
   require("./config/passport")(passport);
   // Routes
   app.use("/api/users", userAPI)
-  const PORT = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
+
+  const PORT = 4000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 app.use(routes);
+app.use("/expenses",expenseAPI);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
