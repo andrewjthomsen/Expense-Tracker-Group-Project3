@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import SignUp from "./views/SignUp/signup";
 import SignIn from "./views/SignIn/SignIn";
-// import AddExpense from "./components/Expense-Form/expenseForm";
+
 
 import store from "./store";
 import Admin from "layouts/Admin.jsx";
@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route path="/rtl" component={RTL} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={SignUp} />
-      {/* <Route exact path="/ExpenseForm" render={props => <AddExpense />} /> */}
+ 
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </Router>
