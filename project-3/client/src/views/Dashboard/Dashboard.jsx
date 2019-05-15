@@ -10,10 +10,10 @@ import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
+// import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
+// import Accessibility from "@material-ui/icons/Accessibility";
 import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
@@ -25,10 +25,15 @@ import Tasks from "components/Tasks/Tasks.jsx";
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import Danger from "components/Typography/Danger.jsx";
 import Card from "components/Card/Card.jsx";
+import ExpenseCard from "components/ExpensesCard/ExpenseCard.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
+import ExpenseCardHeader from "components/ExpensesCard/ExpenseCardHeader.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
+// import ExpenseCardIcon from "components/ExpenseCard/ExpenseCardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import ExpenseCardBody from "components/ExpensesCard/ExpenseCardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+// import ExpenseCardFooter from "components/ExpenseCard/ExpenseCardFooter.jsx";
 
 import { bugs, website, server } from "variables/general.jsx";
 
@@ -245,17 +250,17 @@ class Dashboard extends React.Component {
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
-            <Card>
-              <CardHeader color="warning">
+            <ExpenseCard>
+              <ExpenseCardHeader color="warning">
                 {/* Append Current Expenses */}
 
                 <h4 className={classes.cardTitleWhite}>Expenses</h4>
                 <p className={classes.cardCategoryWhite}>
                   New employees on 15th September, 2016
                 </p>
-              </CardHeader>
-              <CardBody>
-                <Table
+              </ExpenseCardHeader>
+              <ExpenseCardBody>
+                {/* <Table
                   tableHeaderColor="warning"
                   tableHead={["ID", "Name", "Salary", "Country"]}
                   tableData={[
@@ -264,9 +269,9 @@ class Dashboard extends React.Component {
                     ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
                     ["4", "Philip Chaney", "$38,735", "Korea, South"]
                   ]}
-                />
-              </CardBody>
-            </Card>
+                /> */}
+              </ExpenseCardBody>
+            </ExpenseCard>
           </GridItem>
         </GridContainer>
       </div>

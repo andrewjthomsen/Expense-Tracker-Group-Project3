@@ -18,7 +18,8 @@ expenseRoutes.route('/add').post(function (req, res) {
 
 // Defined get data(index or listing) route
 expenseRoutes.route('/').get(function (req, res) {
-    Expense.find(function(err, expenses){
+  console.log('in route');  
+  Expense.find(function(err, expenses){
     if(err){
       console.log(err);
     }
@@ -27,6 +28,17 @@ expenseRoutes.route('/').get(function (req, res) {
     }
   });
 });
-
+// FINDALL EXPENSES ROUTE
+expenseRoutes.route('/expenses').get(function (req, res) {
+  console.log('in expenses route');  
+  Expense.findAll(function(err, expenses){
+    if(err){
+      console.log(err);
+    }
+    else {
+      res.json(expenses);
+    }
+  });
+});
 
 module.exports = expenseRoutes;
