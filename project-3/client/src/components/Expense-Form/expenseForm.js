@@ -5,7 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
+// import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
@@ -16,8 +16,12 @@ import Style from "../../assets/jss/material-dashboard-react/views/dashboardStyl
 import avatar from "assets/img/faces/marc.jpg";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Input from "@material-ui/core/Input";
-import API from "../../utils/api";
+// import Input from "@material-ui/core/Input";
+// import Expense from "../../../../models/expense";
+// AXIOS
+import axios from "axios";
+import API from "../../routes/api/api";
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -39,67 +43,74 @@ const styles = {
 class AddExpense extends React.Component {
   constructor(props) {
     super(props);
+    this.handlePayee = this.handlePayee.bind(this);
+    this.handleAmount = this.handleAmount.bind(this);
+    this.handleCategory = this.handleCategory.bind(this);
+    this.handleComment = this.handleComment.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       payee: "",
-      user: "",
       amount: "",
       category: "",
       comment: ""
     };
-    this.addExpense = this.addExpense.bind(this);
   }
-  handlePayee(e) {
+
+  handlePayee = e => {
+    e.preventDefault();
     this.setState({
       payee: e.target.value
     });
-  }
-  // handleUser(e) {
-  //   this.setState({
-  //     user: e.target.value
-  //   });
-  // }
-  handleAmount(e) {
+  };
+  handleAmount = e => {
+    e.preventDefault();
     this.setState({
       amount: e.target.value
     });
-  }
-  handleCategory(e) {
+  };
+  handleCategory = e => {
+    e.preventDefault();
     this.setState({
       category: e.target.value
     });
-  }
-  handleComment(e) {
+  };
+  handleComment = e => {
+    e.preventDefault();
     this.setState({
       comment: e.target.value
     });
-  }
-  addExpense(e) {
+  };
+
+  // Refresh state
+  addExpense = e => {
     e.preventDefault();
-
-    const payee = this.state.payee;
-    const amount = this.state.amount;
-    // const user = this.state.user;
-    const category = this.state.category;
-    const comment = this.state.comment;
-    const expense = { payee, amount, category, comment };
-
-    // Reset form fields
+    // API CALL TO EXPENSE INFO TO DATABASE
+    API.addExpense();
+    // RE-RENDER EXPENSE FORM
+  };
+  onSubmit(e) {
+    e.preventDefault();
+    const expenseData = {
+      payee: this.state.payee,
+      amount: this.state.amount,
+      category: this.state.category,
+      comment: this.state.comment
+    };
+    console.log(expenseData);
+    axios
+      .post("http://localhost:5000/admin/expenseForm", expenseData)
+      .then(res => console.log(res.data));
     this.setState({
-      category: "",
       payee: "",
-      // user: "",
       amount: "",
+      category: "",
       comment: ""
     });
-    //API.addExpense(this.state).then(() => {
-      this.props.onExpensesUpdated();
-    //});
-    //this.props.router.push('/');
-    //this.props.history.push("/");
   }
-  render(props) {
+
+  render() {
     return (
-      <div>
+      <form onSubmit={this.onSubmit}>
         <GridContainer>
           <GridItem xs={12} sm={12} md={8}>
             <Card>
@@ -112,44 +123,36 @@ class AddExpense extends React.Component {
               <CardBody>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={5}>
-                    <CustomInput
-                      labelText="Payee"
-                      id="payee"
-                      inputProps={{
-                        value: this.state.payee,
-                        onChange: this.handlePayee.bind(this)
-                      }}
-                      required
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
+                    <div>
+                      <input
+                        labelText="Payee"
+                        id="payee"
+                        inputProps={{
+                          value: this.state.payee,
+                          onChange: this.handlePayee
+                        }}
+                        required
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                    </div>
                   </GridItem>
-                  {/* <GridItem xs={12} sm={12} md={5}>
-                    <CustomInput
-                      labelText="User"
-                      id="user"
-                      value={this.state.user}
-                      onChange={this.handleUser.bind(this)}
-                      required
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
-                  </GridItem> */}
                   <GridItem xs={12} sm={12} md={5}>
-                    <CustomInput
-                      labelText="Amount"
-                      id="amount"
-                      inputProps={{
-                        value: this.state.amount,
-                        onChange: this.handleAmount.bind(this)
-                      }}
-                      required
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                    />
+                    <div>
+                      <input
+                        labelText="Amount"
+                        id="amount"
+                        inputProps={{
+                          value: this.state.amount,
+                          onChange: this.handleAmount
+                        }}
+                        required
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                    </div>
                   </GridItem>
                 </GridContainer>
                 <GridContainer>
@@ -158,13 +161,9 @@ class AddExpense extends React.Component {
                     <Select
                       inputProps={{
                         value: this.state.category,
-                        onChange: this.handleCategory.bind(this)
+                        onChange: this.handleCategory
                       }}
-                      input={<Input name="age" id="age-helper" />}
                     >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
                       <MenuItem value={"books"}>Books</MenuItem>
                       <MenuItem value={"clothes"}>Clothes</MenuItem>
                       <MenuItem value={"electricity"}>Electricity</MenuItem>
@@ -181,12 +180,12 @@ class AddExpense extends React.Component {
                 </GridContainer>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <CustomInput
+                    <input
                       labelText="comment"
                       id="comment"
                       inputProps={{
                         value: this.state.comment,
-                        onChange: this.handleComment.bind(this),
+                        onChange: this.handleComment,
                         multiline: true,
                         rows: 5
                       }}
@@ -198,7 +197,7 @@ class AddExpense extends React.Component {
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <Button type="submit" onClick={this.addExpense} color="primary">
+                <Button type="submit" color="primary">
                   Submit
                 </Button>
               </CardFooter>
@@ -211,23 +210,12 @@ class AddExpense extends React.Component {
                   <img src={avatar} alt="..." />
                 </a>
               </CardAvatar>
-              {/* <CardBody profile>
-                <h6 className={Style.cardCategory}>CEO / CO-FOUNDER</h6>
-                <h4 className={Style.cardTitle}>Alec Thompson</h4>
-                <p className={Style.description}>
-                  Don't be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
-                </p>
-                <Button color="primary" round>
-                  Follow
-                </Button>
-              </CardBody> */}
             </Card>
           </GridItem>
         </GridContainer>
-      </div>
+      </form>
     );
   }
 }
+
 export default withStyles(styles)(AddExpense);

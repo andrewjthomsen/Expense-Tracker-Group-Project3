@@ -2,7 +2,6 @@ const router = require("express").Router();
 const expenseController = require("../../controllers/expenseController");
 //const jwtMiddleware = require('../../middleware');
 
-
 // Matches with "/api/users/expenses" >>> "users" being a specific user defined, not ALL users
 router.route("/expenses")
   //.all(jwtMiddleware)
