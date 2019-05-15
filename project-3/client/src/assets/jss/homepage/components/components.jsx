@@ -1,26 +1,28 @@
-import { container } from "../material-kit-react";
+import { container, title } from "../material-kit-react";
 
 const componentsStyle = {
-  container,
-  brand: {
-    color: "#FFFFFF",
-    textAlign: "left"
+  container: {
+    zIndex: "12",
+    color: "black",
+    ...container
   },
   title: {
-    fontSize: "4.2rem",
-    fontWeight: "600",
+    ...title,
     display: "inline-block",
     position: "relative",
-    color:"#ffeb3b"
+    marginTop: "30px",
+    minHeight: "32px",
+    color: "#ffd600",
+    textDecoration: "none"
   },
   subtitle: {
     fontSize: "1.313rem",
     maxWidth: "500px",
-    margin: "10px 0 0",
-    color:"#ffeb3b"
+    margin: "10px auto 0",
+    color: "#ffff00"
   },
   main: {
-    background: "#FFFFFF",
+    background: "linear-gradient(to top, #ba8b02, #181818)",
     position: "relative",
     zIndex: "3"
   },
@@ -29,12 +31,6 @@ const componentsStyle = {
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
-  },
-  link: {
-    textDecoration: "none"
-  },
-  textCenter: {
-    textAlign: "center"
   }
 };
 
