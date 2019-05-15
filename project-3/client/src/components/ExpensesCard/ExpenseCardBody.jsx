@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "components/Table/Table.jsx";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -22,7 +22,18 @@ function CardBody({ ...props }) {
     [className]: className !== undefined
   });
   // SETTING STATE ON CARDBODY
-  const expenses = useState([]);
+  const [data, setData] = useState({ expenses: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://localhost:5000/expenses");
+
+      setData(result.data);
+    };
+
+    fetchData();
+  }, []);
+  // Returns array of expenses
   console.log("expenses are:", expenses);
   return (
     <div className={cardBodyClasses} {...rest}>
@@ -31,12 +42,12 @@ function CardBody({ ...props }) {
         <Table
           tableHeaderColor="warning"
           tableHead={["ID", "Name", "Salary", "Country"]}
-          tableData={[
-            ["1", "Dakota Rice", "$36,738", "Niger"],
-            ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-            ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-            ["4", "Philip Chaney", "$38,735", "Korea, South"]
-          ]}
+          tableData={
+            {data.hits.map(item => (
+                       key={item.objectID}
+                        
+                    ))}
+          }
         />
       </div>
     </div>
@@ -61,3 +72,30 @@ CardBody.propTypes = {
 //     });
 // }
 export default withStyles(cardBodyStyle)(CardBody);
+
+// USE TO WRITE COMPONENT
+// function App() {
+//   const [data, setData] = useState({ hits: [] });
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const result = await axios(
+//         'http://hn.algolia.com/api/v1/search?query=redux',
+//       );
+
+//       setData(result.data);
+//     };
+
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <ul>
+//       {data.hits.map(item => (
+//         <li key={item.objectID}>
+//           <a href={item.url}>{item.title}</a>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
