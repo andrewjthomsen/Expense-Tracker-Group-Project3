@@ -14,7 +14,7 @@ import TableList from "views/TableList/TableList.jsx";
 // core components/views for RTL layout
 //import RTLPage from "views/RTLPage/RTLPage.jsx";
 // Group Created pages
-import Profile from "./views/UserProfile/UserProfile";
+import Balance from "./components/Balance/balance";
 import SignUp from "./views/SignUp/signup";
 import SignIn from "./views/SignIn/SignIn";
 import ExpenseForm from "./components/Expense-Form/expenseForm";
@@ -41,10 +41,10 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/user",
+    path: "/balance",
     name: "Balance",
     icon: Person,
-    component: Profile,
+    component: Balance,
     layout: "/admin"
   },
   {
