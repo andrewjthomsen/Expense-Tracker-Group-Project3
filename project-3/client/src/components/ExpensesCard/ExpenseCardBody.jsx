@@ -23,23 +23,25 @@ function CardBody({ ...props }) {
   });
   // SETTING STATE ON CARDBODY
   const [data, setData] = useState({ expenses: [] });
-
+  console.log("expenses are:", data);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios("http://localhost:5000/expenses");
 
       setData(result.data);
+      console.log(result);
     };
 
     fetchData();
+   
   }, []);
   // Returns array of expenses
-  console.log("expenses are:", expenses);
+
   return (
     <div className={cardBodyClasses} {...rest}>
       {children}
       <div>
-        <Table
+        {/* <Table
           tableHeaderColor="warning"
           tableHead={["ID", "Name", "Salary", "Country"]}
           tableData={
@@ -48,7 +50,7 @@ function CardBody({ ...props }) {
                         
                     ))}
           }
-        />
+        /> */}
       </div>
     </div>
   );
