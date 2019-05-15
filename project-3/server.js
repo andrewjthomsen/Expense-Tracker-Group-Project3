@@ -8,14 +8,14 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require("cors");
 // Loads in Mongoose database
-const database = require("./routes/api/DB");
-
+const config = require("./routes/api/DB");
 // BRING IN ROUTE FOR EXPENSE FORM
-// const expenseRoute = require("./routes/api/expenseRoute");
+const expenseRoute = require("./routes/api/expenseAPI");
+
 
 // Bring in Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(database.DB, { useNewUrlParser: true }).then(
+mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {console.log('Database is connected') },
   err => { console.log('Can not connect to the database'+ err)}
 );
@@ -66,7 +66,7 @@ const models = require("./models/");
   const PORT = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 app.use(routes);
-app.use("/expenses",expenseAPI);
+app.use("/expenses",expenseRoute);
 
 // NEW ROUTE FOR EXPENSE FORM COMPONENT 
 // app.use("/expense", expenseRoute);

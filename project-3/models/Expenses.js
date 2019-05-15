@@ -34,10 +34,10 @@ const expenseSchema = new Schema({
       type: String
     }
   },{
-  collection: "expense"
-  // { strict: false }
+  collection: "Expenses"
+
   });
 
-const Expense = mongoose.model("Expense", expenseSchema);
+const Expenses = mongoose.model("Expenses", expenseSchema);
 
-module.exports = Expense;
+module.exports = Expenses;

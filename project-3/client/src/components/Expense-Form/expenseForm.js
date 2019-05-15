@@ -96,9 +96,8 @@ class AddExpense extends React.Component {
       category: this.state.category,
       comment: this.state.comment
     };
-    console.log(expenseData);
     axios
-      .post("http://localhost:5000/admin/expenseForm", expenseData)
+      .post("http://localhost:5000/expenses/add", expenseData)
       .then(res => console.log(res.data));
     this.setState({
       payee: "",
