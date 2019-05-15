@@ -1,12 +1,12 @@
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
+// import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
-import LocationOn from "@material-ui/icons/LocationOn";
+// import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
-import Unarchive from "@material-ui/icons/Unarchive";
-import Language from "@material-ui/icons/Language";
+// import Unarchive from "@material-ui/icons/Unarchive";
+// import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
@@ -14,8 +14,11 @@ import TableList from "views/TableList/TableList.jsx";
 // core components/views for RTL layout
 //import RTLPage from "views/RTLPage/RTLPage.jsx";
 // Group Created pages
-import Profile from "./views/UserProfile/UserProfile";
 
+import Profile from "./views/UserProfile/UserProfile";
+import Balance from "./components/Balance/balance";
+import SignUp from "./views/SignUp/signup";
+import SignIn from "./views/SignIn/SignIn";
 import ExpenseForm from "./components/Expense-Form/expenseForm";
 
 const dashboardRoutes = [
@@ -28,10 +31,11 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/user",
-    name: "Profile",
+
+    path: "/balance",
+    name: "Balance",
     icon: Person,
-    component: Profile,
+    component: Balance,
     layout: "/admin"
   },
   {

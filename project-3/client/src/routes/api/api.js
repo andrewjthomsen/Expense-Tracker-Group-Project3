@@ -14,7 +14,7 @@ export default {
   // Add new expense
   addExpense: function(expenseData) {
     // console.log(expenseData);
-    return axios.post("/admin/expenseForm", expenseData);
+    return axios.post("/expenseForm", expenseData);
   },
 
   // Delete a specific expense defined by "id"
