@@ -6,11 +6,15 @@ import classNames from "classnames";
 import Header from "../components/Header/Header.jsx";
 import GridContainer from "../components/Grid/GridContainer.jsx";
 import GridItem from "../components/Grid/GridItem.jsx";
-import Parallax from "../components/Parallax/Parallax.jsx"
+import Parallax from "../components/Parallax/Parallax.jsx";
+
 //sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 //import logo from "assets/img/reactlogo.png";
 import componentsStyle from "../assets/jss/homepage/components/components";
+import AboutusSection from "./sections/AboutusSection";
+import TestimonialsSection from "./sections/TestimonialsSection";
+import ContactusSection from "./sections/ContactusSection";
 
 class HomePage extends React.Component {
     render(){
@@ -43,7 +47,13 @@ class HomePage extends React.Component {
             </GridContainer>
             </div>
             </Parallax>
-        
+            <div className={classNames(classes.main, classes.mainRaised)}>
+          <div className={classes.container}>
+            <AboutusSection />
+            <TestimonialsSection />
+            <ContactusSection />
+          </div>
+        </div>
         
         
         
