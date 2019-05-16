@@ -31,7 +31,7 @@ expenseRoutes.route('/').get(function (req, res) {
 // FINDALL EXPENSES ROUTE
 expenseRoutes.route('/expenses').get(function (req, res) {
   console.log('in expenses route');  
-  Expense.findAll(function(err, expenses){
+  Expense.find(function(err, expenses){
     if(err){
       console.log(err);
     }

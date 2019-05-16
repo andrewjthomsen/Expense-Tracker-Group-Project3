@@ -23,34 +23,30 @@ function CardBody({ ...props }) {
   });
   // SETTING STATE ON CARDBODY
   const [data, setData] = useState({ expenses: [] });
-  console.log("expenses are:", data);
+  console.log("expenses are:", data.expenses);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:5000/expenses");
+      const result = await axios("http://localhost:5000/api/expenses");
 
       setData(result.data);
       console.log(result);
     };
-
     fetchData();
-   
+    // const tableInfo = data.expenses;
+    // console.log("tableInfo is:", tableInfo);
   }, []);
-  // Returns array of expenses
+
+  // item => (key = item.objectID
 
   return (
     <div className={cardBodyClasses} {...rest}>
       {children}
       <div>
-        {/* <Table
+        <Table
           tableHeaderColor="warning"
-          tableHead={["ID", "Name", "Salary", "Country"]}
-          tableData={
-            {data.hits.map(item => (
-                       key={item.objectID}
-                        
-                    ))}
-          }
-        /> */}
+          tableHead={["payee", "amount", "category", "comment"]}
+          // tableData={this.state}
+        />
       </div>
     </div>
   );
