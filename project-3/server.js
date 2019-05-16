@@ -1,9 +1,3 @@
-// const express = require("express");
-// const passport = require("passport");
-// const path = require("path");
-// const bodyParser = require("body-parser");
-// const userAPI = require("./routes/api/userAPI");
-// const app = express();
 // const mongoose = require("mongoose");
 // const routes = require("./routes");
 // const cors = require("cors");
@@ -11,7 +5,6 @@
 // const config = require("./routes/api/DB");
 // // BRING IN ROUTE FOR EXPENSE FORM
 // const expenseRoute = require("./routes/api/expenseAPI");
-
 
 // // Bring in Mongoose
 // mongoose.Promise = global.Promise;
@@ -24,7 +17,6 @@
 // app.use(cors());
 // app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser.json());
-
 
 // const expenseAPI = require("./routes/api/expenseAPI");
 // // Bodyparser middleware
@@ -55,27 +47,49 @@
 
 // // Define API routes here
 // const models = require("./models/");
-const express = require('express');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+const userAPI = require("./routes/api/userAPI");
+const passport = require("passport");
+const path = require("path");
 const PORT = 5000;
-const cors = require('cors');
-const mongoose = require('mongoose');
-const config = require('./routes/api/DB');
-const expenseRoute = require('./routes/api/expenseAPI');
+const cors = require("cors");
+const mongoose = require("mongoose");
+const expenseRoute = require("./routes/api/expenseAPI");
+// // DB Config
+
+const db = require("./config/keys");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => {console.log('Database is connected') },
-  err => { console.log('Can not connect to the database'+ err)}
+mongoose.connect(db.mongoURI, { useNewUrlParser: true }).then(
+  () => {
+    console.log("Database is connected");
+  },
+  err => {
+    console.log("Can not connect to the database" + err);
+  }
 );
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api', expenseRoute);
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// routes
+app.use("/api", expenseRoute);
+app.use("/user", userAPI);
 
-app.listen(PORT, function(){
-  console.log('Server is running on Port:',PORT);
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
+app.listen(PORT, function() {
+  console.log("Server is running on Port:", PORT);
 });
