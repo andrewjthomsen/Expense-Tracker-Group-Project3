@@ -29,9 +29,19 @@ function CardBody({ ...props }) {
       const result = await axios("http://localhost:5000/api/expenses");
 
       setData(result.data);
-      console.log(result);
-      console.log(result.data);
-      console.log(result.data[0]);
+      // console.log(result);
+      // console.log(result.data);
+      // console.log(result.data[0]);
+      const arrayData = Object.keys(result.data).map(function(key) {
+        return [Object(key), result.data[key]];
+      });
+      // console.log returns array data function
+      console.log("arrayData:", arrayData);
+      const newArray = Object.entries(result.data[0]);
+      console.log("newArray is:", newArray);
+      // newArray[0] returns an array that gives us a string containing another object
+      // console.log("newArray is:", newArray.1);
+     
     };
     fetchData();
     // const tableInfo = data.expenses;
@@ -106,7 +116,8 @@ export default withStyles(cardBodyStyle)(CardBody);
 // Need to parse data in array of strings
 // NEED TO GET DATA IN CONSOLE TO LOOK LIKE EXAMPLE BELOW
 // EXAMPLE COMES FROM DASHBOARD.JSX EXPENSES CARD AT BOTTOM OF CODE PAGE
- {/* <Table
+{
+  /* <Table
                   tableHeaderColor="warning"
                   tableHead={["ID", "Name", "Salary", "Country"]}
                   tableData={[
@@ -115,4 +126,5 @@ export default withStyles(cardBodyStyle)(CardBody);
                     ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
                     ["4", "Philip Chaney", "$38,735", "Korea, South"]
                   ]}
-                /> */}
+                /> */
+}
