@@ -36,12 +36,14 @@ function CardBody({ ...props }) {
         return [Object(key), result.data[key]];
       });
       // console.log returns array data function
-      console.log("arrayData:", arrayData);
-      const newArray = Object.entries(result.data[0]);
-      console.log("newArray is:", newArray);
+      console.log("arrayData:", arrayData[1]);
+      //
+      const expenseArr = Object.keys(result.data).map((key) => {
+        console.log(expenseArr);
+      });
+      // console.log("newArray is:", newArray);
       // newArray[0] returns an array that gives us a string containing another object
       // console.log("newArray is:", newArray.1);
-     
     };
     fetchData();
     // const tableInfo = data.expenses;
