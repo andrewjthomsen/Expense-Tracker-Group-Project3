@@ -42,11 +42,11 @@ function CardBody({ ...props }) {
     <div className={cardBodyClasses} {...rest}>
       {children}
       <div>
-        <Table
+        {/* <Table
           tableHeaderColor="warning"
           tableHead={["payee", "amount", "category", "comment"]}
           // tableData={this.state}
-        />
+        /> */}
       </div>
     </div>
   );
