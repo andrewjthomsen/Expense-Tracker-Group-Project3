@@ -23,7 +23,7 @@ function CardBody({ ...props }) {
   });
   // SETTING STATE ON CARDBODY
   const [data, setData] = useState({ expenses: [] });
-  console.log("expenses are:", data.expenses);
+  // console.log("expenses are:", data.expenses);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios("http://localhost:5000/api/expenses");
@@ -36,14 +36,14 @@ function CardBody({ ...props }) {
         return [Object(key), result.data[key]];
       });
       // console.log returns array data function
-      console.log("arrayData:", arrayData[1]);
-      //
-      const expenseArr = Object.keys(result.data).map((key) => {
-        console.log(expenseArr);
-      });
-      // console.log("newArray is:", newArray);
-      // newArray[0] returns an array that gives us a string containing another object
-      // console.log("newArray is:", newArray.1);
+      console.log("arrayData:", arrayData[1][1].payee);
+      console.log("arrayData:", arrayData[1][1].amount);
+      console.log("arrayData:", arrayData[1][1].category);
+      console.log("arrayData:", arrayData[1][1].comment);
+      // NEED TO WRITE FORLOOP TO LOOP THROUGH FIRST FIVE MOST RECENT EXPENSES ADDED
+      // NEED ANOTHER LOOP THAT PUSHES RESULTS INTO AN ARRAY
+      // WILL HAVE AN ARRAY OF 5 ARRAYS
+      // WHAT TABLE DATA WILL BE EQUAL TO
     };
     fetchData();
     // const tableInfo = data.expenses;
