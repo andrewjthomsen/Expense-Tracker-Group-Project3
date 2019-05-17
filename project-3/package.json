@@ -22,7 +22,6 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
-    "babel": "^6.23.0",
     "barbel": "0.0.9",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
