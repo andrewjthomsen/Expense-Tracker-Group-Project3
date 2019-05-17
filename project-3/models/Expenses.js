@@ -6,10 +6,6 @@ let Expense = new Schema({
     required: true,
     default: new Date()
   },
-  // User: {
-  //   type: String,
-  //   ref: "User",
-  // },
   payee: {
     type: String,
     required: true

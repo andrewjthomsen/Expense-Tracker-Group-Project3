@@ -321,7 +321,7 @@ class AddExpense extends React.Component {
     };
     console.log(obj);
     axios
-      .post("http://localhost:5000/business/add", obj)
+      .post("http://localhost:5000/api/add", obj)
       .then(res => console.log(res.data));
 
     // API.addExpense(obj)
