@@ -6,16 +6,13 @@ import ChartistGraph from "react-chartist";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
+import Check from "@material-ui/icons/Check";
+import Spa from "@material-ui/icons/Spa";
 import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
@@ -30,7 +27,7 @@ import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 
-import { bugs, website, server } from "variables/general.jsx";
+import { groceries, server } from "variables/general.jsx";
 
 import {
   dailySalesChart,
@@ -60,7 +57,7 @@ class Dashboard extends React.Component {
             <Card>
               <CardHeader color="warning" stats icon>
                 <CardIcon color="warning">
-                  <Icon>content_copy</Icon>
+                  <Icon>playlist_add</Icon>
                 </CardIcon>
                 <p className={classes.cardCategory}>Total Expenses</p>
 
@@ -74,8 +71,8 @@ class Dashboard extends React.Component {
                   <Danger>
                     <Warning />
                   </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
+                  <a href="/admin/balance" onClick={e => e.preventDefault()}>
+                    Check Your Current Expenses 
                   </a>
                 </div>
               </CardFooter>
@@ -85,7 +82,7 @@ class Dashboard extends React.Component {
             <Card>
               <CardHeader color="success" stats icon>
                 <CardIcon color="success">
-                  <Store />
+                  <Icon>attach_money</Icon>
                 </CardIcon>
 
                 <p className={classes.cardCategory}>Current Balance</p>
@@ -118,14 +115,14 @@ class Dashboard extends React.Component {
               <CardFooter stats>
                 <div className={classes.stats}>
                   <LocalOffer />
-                  Tracked from Github
+                  Updated
                 </div>
               </CardFooter>
             </Card>
           </GridItem>
         </GridContainer>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <Card chart>
               <CardHeader color="success">
                 <ChartistGraph
@@ -137,12 +134,12 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Daily Sales</h4>
+                <h4 className={classes.cardTitle}>Most Spent Categories</h4>
                 <p className={classes.cardCategory}>
                   <span className={classes.successText}>
                     <ArrowUpward className={classes.upArrowCardCategory} /> 55%
                   </span>{" "}
-                  increase in today sales.
+                  Spending increase this month.
                 </p>
               </CardBody>
               <CardFooter chart>
@@ -152,7 +149,7 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <Card chart>
               <CardHeader color="warning">
                 <ChartistGraph
@@ -165,38 +162,14 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Email Subscriptions</h4>
+                <h4 className={classes.cardTitle}>Monthly Total Expenses Comparing</h4>
                 <p className={classes.cardCategory}>
-                  Last Campaign Performance
+                  At Year 2019
                 </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
-              <CardHeader color="danger">
-                <ChartistGraph
-                  className="ct-chart"
-                  data={completedTasksChart.data}
-                  type="Line"
-                  options={completedTasksChart.options}
-                  listener={completedTasksChart.animation}
-                />
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>Completed Tasks</h4>
-                <p className={classes.cardCategory}>
-                  Last Campaign Performance
-                </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
+                  <AccessTime /> Updated 1 Month Ago
                 </div>
               </CardFooter>
             </Card>
@@ -209,30 +182,23 @@ class Dashboard extends React.Component {
               headerColor="primary"
               tabs={[
                 {
-                  tabName: "Bugs",
-                  tabIcon: BugReport,
+                  tabName: "Grocery List",
+                  tabIcon: Check,
                   tabContent: (
                     <Tasks
                       checkedIndexes={[0, 3]}
                       tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
+                      tasks={
+                        groceries
+
+                      }
                     />
                   )
                 },
+               
                 {
-                  tabName: "Website",
-                  tabIcon: Code,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
-                  )
-                },
-                {
-                  tabName: "Server",
-                  tabIcon: Cloud,
+                  tabName: "Todo",
+                  tabIcon: Spa,
                   tabContent: (
                     <Tasks
                       checkedIndexes={[1]}
