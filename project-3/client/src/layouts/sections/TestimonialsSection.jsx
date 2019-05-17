@@ -37,13 +37,13 @@ class TestimonialsSection extends React.Component {
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team1} alt="..." className={imageClasses} />
                 </GridItem>
-                <h4 className={classes.cardTitle}>
-                  Gigi
+                <h4 className={classes.cardTitle} >
+                  <b>Gigi</b>
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                  <small className={classes.smallTitle} style={{ color: '#e0e0e0' }} >Model</small>
                 </h4>
                 <CardBody>
-                  <p className={classes.description}>
+                  <p className={classes.description} style={{ color: '#fffde7' }}>
                   So far I love Affluent. 
                   It really has helped me to start actually budgeting and keep track of my finances, mostly because of how easy it is.
                   </p>
@@ -56,12 +56,12 @@ class TestimonialsSection extends React.Component {
                   <img src={team2} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Christian
+                  <b>Christian</b>
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
+                  <small className={classes.smallTitle} style={{ color: '#e0e0e0' }}><b>Designer</b></small>
                 </h4>
                 <CardBody>
-                  <p className={classes.description}>
+                  <p className={classes.description} style={{ color: '#fffde7' }}>
                     Very convenient. Super easy to set up. Good way to control your spending!
                   </p>
                 </CardBody>
@@ -73,12 +73,12 @@ class TestimonialsSection extends React.Component {
                   <img src={team3} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Kate
+                  <b>Kate</b>
                   <br />
-                  <small className={classes.smallTitle}>Student</small>
+                  <small className={classes.smallTitle} style={{ color: '#e0e0e0' }}><b>Student</b></small>
                 </h4>
                 <CardBody>
-                  <p className={classes.description}>
+                  <p className={classes.description} style={{ color: '#fffde7' }}>
                   It looks like you guys have a great service going. 
                   I wish you the very best of luck, 
                   and I'm excited to use Mint to help me get my financial life in order. 
