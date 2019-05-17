@@ -1,9 +1,9 @@
 module.exports = {
-    mongoURI: "mongodb://localhost:27017/ExpenseTracker"
+    mongoURI: "mongodb://localhost/ExpenseTracker"
   };
 
   module.exports = {
-    mongoURI: "mongodb://localhost:27017/ExpenseTracker",
+    mongoURI: "mongodb://localhost/ExpenseTracker",
     secretOrKey: "secret"
   };
 
