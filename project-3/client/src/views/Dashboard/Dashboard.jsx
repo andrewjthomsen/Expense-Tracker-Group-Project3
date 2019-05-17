@@ -250,7 +250,7 @@ class Dashboard extends React.Component {
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
-          <Card>
+            <Card>
               <CardHeader color="primary">
                 {/* Append Current Expenses */}
 
