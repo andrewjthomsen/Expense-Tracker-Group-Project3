@@ -260,7 +260,7 @@ class Dashboard extends React.Component {
                 </p>
               </ExpenseCardHeader>
               <ExpenseCardBody>
-                {/* <Table
+                <Table
                   tableHeaderColor="warning"
                   tableHead={["ID", "Name", "Salary", "Country"]}
                   tableData={[
@@ -269,7 +269,7 @@ class Dashboard extends React.Component {
                     ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
                     ["4", "Philip Chaney", "$38,735", "Korea, South"]
                   ]}
-                /> */}
+                />
               </ExpenseCardBody>
             </ExpenseCard>
           </GridItem>
