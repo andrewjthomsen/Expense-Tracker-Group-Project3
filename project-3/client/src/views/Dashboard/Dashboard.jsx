@@ -9,10 +9,12 @@ import Icon from "@material-ui/core/Icon";
 import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
+
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Check from "@material-ui/icons/Check";
 import Spa from "@material-ui/icons/Spa";
+
 import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
@@ -22,10 +24,15 @@ import Tasks from "components/Tasks/Tasks.jsx";
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import Danger from "components/Typography/Danger.jsx";
 import Card from "components/Card/Card.jsx";
+import ExpenseCard from "components/ExpensesCard/ExpenseCard.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
+import ExpenseCardHeader from "components/ExpensesCard/ExpenseCardHeader.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
+// import ExpenseCardIcon from "components/ExpenseCard/ExpenseCardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import ExpenseCardBody from "components/ExpensesCard/ExpenseCardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+// import ExpenseCardFooter from "components/ExpenseCard/ExpenseCardFooter.jsx";
 
 import { groceries, server } from "variables/general.jsx";
 
@@ -219,8 +226,8 @@ class Dashboard extends React.Component {
                 <p className={classes.cardCategoryWhite}>
                   Your Current Entries 
                 </p>
-              </CardHeader>
-              <CardBody>
+              </ExpenseCardHeader>
+              <ExpenseCardBody>
                 <Table
                   tableHeaderColor="warning"
                   tableHead={["ID", "Items", "Paid"]}
@@ -231,8 +238,8 @@ class Dashboard extends React.Component {
                     ["4", "Paper Towels", "$38"]
                   ]}
                 />
-              </CardBody>
-            </Card>
+              </ExpenseCardBody>
+            </ExpenseCard>
           </GridItem>
         </GridContainer>
       </div>

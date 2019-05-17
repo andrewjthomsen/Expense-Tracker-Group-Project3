@@ -52,7 +52,11 @@ class Balance extends React.Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:5000/business")
+    // TODO: CREATE API ROUTE TO BALANCE
+    // Responsible for bringing back a balance from the db
+    // NEED TO HARD CODE A BALANCE FOR THE ADDED EXPENSES TO BE SUBTRACTED FROM
+    // NEED JAVASCRIPT TO SUBTRACT EXPENSES FROM CREATED BALANCE
+      .get("http://localhost:5000/api/expenses")
       .then(response => {
         this.setState({ expense: response.data });
       })
