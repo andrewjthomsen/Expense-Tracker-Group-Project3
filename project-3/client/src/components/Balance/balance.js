@@ -93,6 +93,7 @@ class Balance extends React.Component {
       </Card>
       </GridItem>
       </GridContainer>
+
     );
     }
 }
