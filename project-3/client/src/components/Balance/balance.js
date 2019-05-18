@@ -45,17 +45,16 @@ const styles = {
 };
 
 class Balance extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = { expense: [] };
   }
   componentDidMount() {
     axios
-    // TODO: CREATE API ROUTE TO BALANCE
-    // Responsible for bringing back a balance from the db
-    // NEED TO HARD CODE A BALANCE FOR THE ADDED EXPENSES TO BE SUBTRACTED FROM
-    // NEED JAVASCRIPT TO SUBTRACT EXPENSES FROM CREATED BALANCE
+      // TODO: CREATE API ROUTE TO BALANCE
+      // Responsible for bringing back a balance from the db
+      // NEED TO HARD CODE A BALANCE FOR THE ADDED EXPENSES TO BE SUBTRACTED FROM
+      // NEED JAVASCRIPT TO SUBTRACT EXPENSES FROM CREATED BALANCE
       .get("http://localhost:5000/api/expenses")
       .then(response => {
         this.setState({ expense: response.data });
@@ -69,35 +68,36 @@ class Balance extends React.Component {
       return <TableData obj={object} key={i} />;
     });
   }
- 
-  render(){
+
+  render() {
     const { classes } = this.props;
     return (
-
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <span>Created At:</span>
-            </TableCell>
-            <TableCell>
-              <span>Payee:</span>
-            </TableCell>
-            <TableCell>
-              <span>Amount:</span>
-            </TableCell>
-            <TableCell>
-              <span>Category:</span>
-            </TableCell>
-            <TableCell>
-              <span>Comment:</span>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>{this.tableRow()}</TableBody>
-      </Table>
-
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12}>
+          <Card>
+            <CardHeader color="primary">
+              <h3 className={classes.cardTitleWhite}>Current Expenses</h3>
+              <p className={classes.cardCategoryWhite}>
+                Your Current Expenses Breakdown
+              </p>
+            </CardHeader>
+            <CardBody>
+              <Table
+                tableHeaderColor="primary"
+                tableHead={[
+                  "Create At",
+                  "Payee",
+                  "Amount",
+                  "Categories",
+                  "Comment"
+                ]}
+                tableData={this.tableRow()}
+              />
+            </CardBody>
+          </Card>
+        </GridItem>
+      </GridContainer>
     );
-    }
+  }
 }
 export default withStyles(styles)(Balance);
