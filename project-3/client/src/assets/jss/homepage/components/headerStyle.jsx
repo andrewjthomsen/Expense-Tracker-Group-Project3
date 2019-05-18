@@ -98,7 +98,7 @@ const headerStyle = {
       "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(244, 67, 54, 0.46)"
   },
   rose: {
-    backgroundColor: roseColor,
+    backgroundColor: "linear-gradient(to top, #dae2f8, #d6a4a4)",
     color: "#FFFFFF",
     boxShadow:
       "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)"
