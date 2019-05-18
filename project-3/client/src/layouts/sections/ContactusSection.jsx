@@ -20,7 +20,7 @@ class ContactusSection extends React.Component {
         <GridContainer justify="center">
           <GridItem cs={12} sm={12} md={8}>
             <h2 className={classes.title}>Contact Us</h2>
-            <h4 className={classes.description}>
+            <h4 className={classes.description} style={{ color: '#e0e0e0' }}>
             We would like to hear from you. Have any questions or comments?
             </h4>
             <form>
