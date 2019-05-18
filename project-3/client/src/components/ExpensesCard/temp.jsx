@@ -13,18 +13,13 @@ import cardBodyStyle from "assets/jss/material-dashboard-react/components/cardBo
 // BRING IN AXIOS
 import axios from "axios";
 import "./style/expenseCardStyle.css";
-function CardBody({ ...props }) {
-  const { classes, className, children, plain, profile, ...rest } = props;
-  const cardBodyClasses = classNames({
-    [classes.cardBody]: true,
-    [classes.cardBodyPlain]: plain,
-    [classes.cardBodyProfile]: profile,
-    [className]: className !== undefined
-  });
-  // SETTING STATE ON CARDBODY
-  const [data, setData] = useState({ expenses: [] });
-  // console.log("expenses are:", data.expenses);
-  useEffect(() => {
+
+class ExpenseCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { expense: [] };
+  }
+  componentDidMount() {
     const fetchData = async () => {
       const result = await axios("http://localhost:5000/api/expenses");
 
@@ -38,7 +33,7 @@ function CardBody({ ...props }) {
       // console.log returns array data function
       // console.log("arrayData:", arrayData[0][1].payee);
       // console.log("arrayData:", arrayData[1][1].amount);
-      console.log("arrayData:", arrayData[0][1].category);
+      console.log("arrayData:", arrayData);
       // console.log("arrayData:", arrayData[1][1].comment);
       // NEED TO WRITE FORLOOP TO LOOP THROUGH FIRST FIVE MOST RECENT EXPENSES ADDED
       // NEED ANOTHER LOOP THAT PUSHES RESULTS INTO AN ARRAY
@@ -48,7 +43,8 @@ function CardBody({ ...props }) {
       // var getSet = ""; // Get Skills from the Array
       // var getSetIcon = data.sets[value].set[0]; // Get Skills Icon
       // var getSetTitle = data.sets[value].set[1]; // Get Equip's Title
-
+      arrayData1 = arrayData;
+      console.log("arrayDATA1 inside:", arrayData1);
       // for(var val = 2; val <= data.sets[value].set.length - 1; val++) {
       //     getSet += data.sets[value].set[val]; // Get Skills info
       // }
@@ -58,11 +54,28 @@ function CardBody({ ...props }) {
       //   );
       // }
     };
-    fetchData();
-    // const tableInfo = data.expenses;
-    // console.log("tableInfo is:", tableInfo);
-  }, []);
+  }
+  fetchData();
+// function CardBody({ ...props }) {
+//   let arrayData1 = "test";
+//   const { classes, className, children, plain, profile, ...rest } = props;
+//   const cardBodyClasses = classNames({
+//     [classes.cardBody]: true,
+//     [classes.cardBodyPlain]: plain,
+//     [classes.cardBodyProfile]: profile,
+//     [className]: className !== undefined
+//   });
+  // SETTING STATE ON CARDBODY
+  
+  const [data, setData] = useState({ expenses: [] });
+  // console.log("expenses are:", data.expenses);
+  // useEffect(() => {
 
+  //   fetchData();
+  //   // const tableInfo = data.expenses;
+  //   // console.log("tableInfo is:", tableInfo);
+  // }, []);
+  console.log ("arrayData1: ", arrayData1);
   // item => (key = item.objectID
 
   // recentExpenses = () => {
@@ -89,16 +102,16 @@ function CardBody({ ...props }) {
       {children}
       <div>
         {/* <Balance className="balanceStyle"/> */}
-        {/* <Table
+        <Table
           tableHeaderColor="warning"
           tableHead={["ID", "Name", "Salary", "Country"]}
           tableData={[
-            ["1", "Dakota Rice", "$36,738", "Niger"],
+            [arrayData1, "Dakota Rice", "$36,738", "Niger"],
             ["2", "Minerva Hooper", "$23,789", "Curaçao"],
             ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
             ["4", "Philip Chaney", "$38,735", "Korea, South"]
           ]}
-        /> */}
+        />
         {/* <Table
           tableHeaderColor="warning"
           tableHead={["payee", "amount", "category", "comment"]}
@@ -115,6 +128,8 @@ CardBody.propTypes = {
   plain: PropTypes.bool,
   profile: PropTypes.bool
 };
+  }
+  export default withStyles(cardBodyStyle)(CardBody);
 // componentDidMount() {
 //   axios
 //     .get("http://localhost:5000/expenses")
@@ -126,7 +141,7 @@ CardBody.propTypes = {
 //       console.log(error);
 //     });
 // }
-export default withStyles(cardBodyStyle)(CardBody);
+
 
 // USE TO WRITE COMPONENT
 // function App() {
