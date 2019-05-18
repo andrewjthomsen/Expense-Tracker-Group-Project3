@@ -40,19 +40,19 @@ class Balance extends React.Component {
         <TableHead>
           <TableRow>
             <TableCell>
-              <h1>Created At:</h1>
+              <span>Created At:</span>
             </TableCell>
             <TableCell>
-              <h1>Payee:</h1>
+              <span>Payee:</span>
             </TableCell>
             <TableCell>
-              <h1>Amount:</h1>
+              <span>Amount:</span>
             </TableCell>
             <TableCell>
-              <h1>Category:</h1>
+              <span>Category:</span>
             </TableCell>
             <TableCell>
-              <h1>Comment:</h1>
+              <span>Comment:</span>
             </TableCell>
           </TableRow>
         </TableHead>
