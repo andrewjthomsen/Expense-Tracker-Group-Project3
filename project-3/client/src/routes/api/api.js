@@ -22,4 +22,3 @@ export default {
     return axios.delete("/api/expenses/" + id);
   }
 };
-
