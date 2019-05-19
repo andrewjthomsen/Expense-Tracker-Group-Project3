@@ -42,7 +42,7 @@ class CardBody extends React.Component {
     // console.log returns array data function
     // console.log("arrayData:", arrayData[0][1].payee);
     // console.log("arrayData:", arrayData[1][1].amount);
-    console.log("arrayData:", arrayData[0][1].category);
+    // console.log("arrayData:", arrayData[0][1].category);
     // console.log("arrayData:", arrayData[1][1].comment);
     // NEED TO WRITE FORLOOP TO LOOP THROUGH FIRST FIVE MOST RECENT EXPENSES ADDED
     // NEED ANOTHER LOOP THAT PUSHES RESULTS INTO AN ARRAY
