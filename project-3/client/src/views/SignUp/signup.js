@@ -55,7 +55,7 @@ class SignUp extends React.Component {
     const { errors } = this.state;
     return (
       <div className="main-w3layouts wrapper">
-        <h1>SignUp Form</h1>
+        <h1>Sign Up</h1>
         <div className="main-agileinfo">
           <div className="agileits-top">
             <form noValidate onSubmit={this.onSubmit}>
@@ -130,7 +130,7 @@ class SignUp extends React.Component {
               </div>
             </form>
             <p>
-              Don't have an Account? <a href="#"> Login Now!</a>
+              Don't have an Account? <a href="/signin"> Login Now!</a>
             </p>
           </div>
         </div>
