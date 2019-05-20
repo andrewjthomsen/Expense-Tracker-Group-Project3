@@ -10,19 +10,19 @@ export default class TableData extends Component {
     return (
       <TableRow>
         <TableCell>
-          <h1>{this.props.obj.createdAt}</h1>
+          <span>{this.props.obj.createdAt}</span>
         </TableCell>
         <TableCell>
-          <h1>{this.props.obj.payee}</h1>
+          <span>{this.props.obj.payee}</span>
         </TableCell>
         <TableCell>
-          <h1>{this.props.obj.amount}</h1>
+          <span>{this.props.obj.amount}</span>
         </TableCell>
         <TableCell>
-          <h1>{this.props.obj.category}</h1>
+          <span>{this.props.obj.category}</span>
         </TableCell>
         <TableCell>
-          <h1>{this.props.obj.comment}</h1>
+          <span>{this.props.obj.comment}</span>
         </TableCell>
         {/* <TableCell colSpan="1">
       <button className="btn btn-primary">Edit</button>

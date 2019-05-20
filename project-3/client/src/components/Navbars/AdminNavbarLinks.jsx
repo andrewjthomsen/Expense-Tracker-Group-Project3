@@ -156,6 +156,7 @@ class HeaderLinks extends React.Component {
           simple={!(window.innerWidth > 959)}
           aria-label="Person"
           className={classes.buttonLink}
+          href="/admin/editprofile"
         >
           <Person className={classes.icons} />
           <Hidden mdUp implementation="css">
