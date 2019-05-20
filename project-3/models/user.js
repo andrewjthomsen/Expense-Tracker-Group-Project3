@@ -17,13 +17,8 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-<<<<<<< HEAD
-  },
-  expense
-=======
   }
   
   
->>>>>>> d0f24777f52bca2198803342c9011bfeb273027c
 });
 module.exports = User = mongoose.model("users", UserSchema);
