@@ -47,7 +47,7 @@ const styles = {
 class Balance extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expense: [] };
+    this.state = { data: {} };
   }
   componentDidMount() {
     axios
