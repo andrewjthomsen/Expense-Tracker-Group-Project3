@@ -33,9 +33,6 @@ class CardBody extends React.Component {
     console.log(data);
 
     this.setState({ data: data });
-    // console.log(result);
-    // console.log(result.data);
-    // console.log(result.data[0]);
     const arrayData = Object.keys(result.data).map(function(key) {
       return [Object(key), result.data[key]];
     });
@@ -51,7 +48,14 @@ class CardBody extends React.Component {
   }
 
   render() {
-    const { classes, className, children, plain, profile, ...rest } = this.props;
+    const {
+      classes,
+      className,
+      children,
+      plain,
+      profile,
+      ...rest
+    } = this.props;
     const cardBodyClasses = classNames({
       [classes.cardBody]: true,
       [classes.cardBodyPlain]: plain,
@@ -61,7 +65,12 @@ class CardBody extends React.Component {
     let tableData = [];
     for (var i = 0; i < this.state.data.length && i < 5; ++i) {
       let expense = this.state.data[i];
-      let row = [ expense.payee, expense.amount, expense.category, expense.comment ];
+      let row = [
+        expense.payee,
+        expense.amount,
+        expense.category,
+        expense.comment
+      ];
       tableData.push(row);
     }
     return (
@@ -74,11 +83,6 @@ class CardBody extends React.Component {
             tableHead={["Payee", "Amount", "Category", "Comment"]}
             tableData={tableData}
           />
-          {/* <Table
-            tableHeaderColor="warning"
-            tableHead={["payee", "amount", "category", "comment"]}
-            // tableData={this.state}
-          /> */}
         </div>
       </div>
     );
@@ -138,40 +142,37 @@ export default withStyles(cardBodyStyle)(CardBody);
 // NEED TO GET DATA IN CONSOLE TO LOOK LIKE EXAMPLE BELOW
 // EXAMPLE COMES FROM DASHBOARD.JSX EXPENSES CARD AT BOTTOM OF CODE PAGE
 
+// var getSet = ""; // Get Skills from the Array
+// var getSetIcon = data.sets[value].set[0]; // Get Skills Icon
+// var getSetTitle = data.sets[value].set[1]; // Get Equip's Title
 
+// for(var val = 2; val <= data.sets[value].set.length - 1; val++) {
+//     getSet += data.sets[value].set[val]; // Get Skills info
+// }
+// for (var j = 1; j <= arrayData.length; j++) {
+//   console.log(
+//     arrayData[i][j].payee + " " + arrayData[i + 1][j + 1].amount
+//   );
+// }
 
-        // var getSet = ""; // Get Skills from the Array
-        // var getSetIcon = data.sets[value].set[0]; // Get Skills Icon
-        // var getSetTitle = data.sets[value].set[1]; // Get Equip's Title
+// item => (key = item.objectID
 
-        // for(var val = 2; val <= data.sets[value].set.length - 1; val++) {
-        //     getSet += data.sets[value].set[val]; // Get Skills info
-        // }
-        // for (var j = 1; j <= arrayData.length; j++) {
-        //   console.log(
-        //     arrayData[i][j].payee + " " + arrayData[i + 1][j + 1].amount
-        //   );
-        // }
+// recentExpenses = () => {
+//   const result = axios("http://localhost:5000/api/expenses");
 
-        
-    // item => (key = item.objectID
+//   setData(result.data);
+//   // console.log(result);
+//   // console.log(result.data);
+//   // console.log(result.data[0]);
+//   const arrayData = Object.keys(result.data).map(function(key) {
+//     return [Object(key), result.data[key]];
+//   });
 
-    // recentExpenses = () => {
-    //   const result = axios("http://localhost:5000/api/expenses");
+//   let table = [];
+//   let children = [];
 
-    //   setData(result.data);
-    //   // console.log(result);
-    //   // console.log(result.data);
-    //   // console.log(result.data[0]);
-    //   const arrayData = Object.keys(result.data).map(function(key) {
-    //     return [Object(key), result.data[key]];
-    //   });
-
-    //   let table = [];
-    //   let children = [];
-
-    //   for (var i = 0; i <= arrayData.length - 1; i++) {
-    //  {children.push(<td>{arrayData[i][1].payee}</td>);
-    //     table.push(<tr>{children}</tr>);
-    //   }
-    // };
+//   for (var i = 0; i <= arrayData.length - 1; i++) {
+//  {children.push(<td>{arrayData[i][1].payee}</td>);
+//     table.push(<tr>{children}</tr>);
+//   }
+// };
