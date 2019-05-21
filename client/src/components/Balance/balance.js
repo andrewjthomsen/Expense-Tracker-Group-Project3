@@ -3,7 +3,7 @@ import Table from "components/Table/Table.jsx";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
-import PropTypes, { array } from "prop-types";
+import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
@@ -32,9 +32,6 @@ class CardBody extends React.Component {
     // console.log(data);
 
     this.setState({ data: data });
-    const arrayData = Object.keys(result.data).map(function(key) {
-      return [Object(key), result.data[key]];
-    });
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import SignUp from "./layouts/signup";
 import SignIn from "./layouts/signin";
 import expenseForm from "../src/components/Expense-Form/expenseForm";

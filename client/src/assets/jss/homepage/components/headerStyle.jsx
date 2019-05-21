@@ -6,7 +6,6 @@ import {
   successColor,
   warningColor,
   dangerColor,
-  roseColor,
   transition,
   boxShadow,
   drawerWidth
