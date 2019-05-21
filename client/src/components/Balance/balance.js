@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Table from "components/Table/Table.jsx";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -9,7 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 // core components
 import cardBodyStyle from "assets/jss/material-dashboard-react/components/cardBodyStyle.jsx";
-import tableData from "./tableData";
+// import tableData from "./tableData";
 // BRING IN AXIOS
 import axios from "axios";
 class CardBody extends React.Component {
@@ -53,7 +53,7 @@ class CardBody extends React.Component {
       [className]: className !== undefined
     });
     let tableData = [];
-    for (var i = 0; i < this.state.data.length && i; ++i) {
+    for (var i = 0; i < this.state.data.length; ++i) {
       let expense = this.state.data[i];
       let row = [
         expense.payee,
