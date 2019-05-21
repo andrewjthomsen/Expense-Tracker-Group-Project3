@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 const path = require("path")
 const mongoose = require('mongoose');
+require("dotenv").config();
 const config = require('./routes/api/DB');
 const expenseRoute = require('./routes/api/expenseAPI');
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/expenses'
