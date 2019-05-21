@@ -32,9 +32,9 @@ class CardBody extends React.Component {
     console.log(data);
 
     this.setState({ data: data });
-    const arrayData = Object.keys(result.data).map(function(key) {
-      return [Object(key), result.data[key]];
-    });
+    // const arrayData = Object.keys(result.data).map(function(key) {
+    //   return [Object(key), result.data[key]];
+    // });
     // console.log returns array data function
     // console.log("arrayData:", arrayData[0][1].payee);
     // console.log("arrayData:", arrayData[1][1].amount);
