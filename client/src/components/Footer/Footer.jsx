@@ -15,23 +15,19 @@ function Footer({ ...props }) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={classes.block}>
+              <a href="/" className={classes.block}>
                 Home
               </a>
             </ListItem>
+          
             <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
-                Company
+              <a href="/" className={classes.block}>
+               About Us
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
-                Portfolio
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
-                Blog
+              <a href="/signin" className={classes.block}>
+                Sign In 
               </a>
             </ListItem>
           </List>
@@ -39,7 +35,7 @@ function Footer({ ...props }) {
         <p className={classes.right}>
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
-            <a href="#" className={classes.a}> {/*Need our Home route right here */}
+            <a href="/admin/dashboard" className={classes.a}> 
               AFFLUENT
             </a>
             Be Wise With Your Money

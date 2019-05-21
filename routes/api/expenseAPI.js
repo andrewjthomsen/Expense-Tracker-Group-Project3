@@ -9,7 +9,7 @@ expenseRoutes.route('/add').post(function (req, res) {
   let expense = new Expense(req.body);
   expense.save()
     .then(expense => {
-      res.status(200).json({'expense': 'expense in added successfully'});
+      res.status(200).json({'expense': 'expense was added successfully'});
     })
     .catch(err => {
     res.status(400).send("unable to save to database");

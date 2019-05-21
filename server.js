@@ -1,4 +1,5 @@
-const express = require('express');
+
+const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
@@ -15,10 +16,25 @@ mongoose.connect(db, { useNewUrlParser: true }).then(
 );
 app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api', expenseRoute);
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
+
+// routes
+app.use("/api", expenseRoute);
+app.use("/user", userAPI);
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
