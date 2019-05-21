@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
-import { registerUser } from "../actions/authActions"
+import { connect } from "react-redux";
+import PropTypes from "prop-types"
 import { withRouter } from "react-router-dom"
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -33,35 +33,9 @@ class SignIn extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      name: "",
       email: "",
       password: "",
-      password2: "",
       errors: {}
-    };
-  }
-  
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-  onSubmit = e => {
-    e.preventDefault();
-    const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2
-
-    };
-    console.log(newUser)
-    this.props.registerUser(newUser, this.props.history);
-  };
-
-
-  componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("../../admin/dashboard");
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -115,12 +89,14 @@ class SignIn extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form action="#" method="post"
-                    noValidate
-                    className={classes.form}
+                  <form
+                    noValidate className={classes.form}
                     onSubmit={this.onSubmit}>
-                    <CardHeader className={classes.cardHeader}>
-                      <h1>SIGN UP</h1>
+
+                    <CardHeader
+                      className={classes.cardHeader}>
+
+                      <h1>SIGN IN</h1>
                       <div className={classes.socialLine}>
                         <Button
                           justIcon
@@ -153,54 +129,29 @@ class SignIn extends React.Component {
                     </CardHeader>
                     <p className={classes.divider}></p>
                     <CardBody>
-                      <CustomInput
-                        labelText="Name..."
-                      
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                       
-                        onChange={this.onChange}
-                        value={this.state.name}
-                        error={errors.name}
-                        id="name"
-                        type="text"
-                      
-                        placeholder="Username"
-                        required fullWidth
-                        className={"text " + classnames("", {
-                          invalid: errors.name 
-                        })}
-                      />
-                      <span className="red-text">{errors.name}
-                      </span>
+               
                       <CustomInput
                         labelText="Email..."
                           formControlProps={{
                           fullWidth: true
                         }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
-                     
+                        id="email"
                         type="email"
-                       
                         placeholder="Email"
                         required fullWidth
-                        className={"text " + classnames("", {
-                          invalid: errors.email
+                        className={classnames("", {
+                          invalid: errors.email || errors.emailnotfound
                         })}
                       />
-                      <span className="red-text">{errors.email}
+                      <span className="red-text">
+                        {errors.email}
+                        {errors.emailnotfound}
                       </span>
+                    
+                     
                       <CustomInput
                         labelText="Password"
                         id="password"
@@ -220,50 +171,17 @@ class SignIn extends React.Component {
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
-                     
                         type="password"
-                        
                         placeholder="Password"
                         required fullWidth
                         className={"text " + classnames("", {
                           invalid: errors.password
                         })}
                       />
-
-                      <CustomInput
-                        labelText="Confirm Password"
-                       
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Icon className={classes.inputIconsColor}>
-                                lock_outline
-                              </Icon>
-                            </InputAdornment>
-
-                          )
-                        }}
-                        onChange={this.onChange}
-                        value={this.state.password2}
-                        error={errors.password2}
-                        id="password2"
-                        type="password"
-                       
-                        placeholder="Confirm Password"
-                        required fullWidth
-                        className={classnames("", {
-                          invalid: errors.password2
-                        })}
-                      />
-                      <span className="red-text">{errors.password2}</span>
-                    </CardBody>
+                   </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg"
-                      type="submit" value="SIGN IN">
+                      input type="submit" value="SIGN IN">
                         Get started
                       </Button>
                     </CardFooter>
@@ -278,8 +196,8 @@ class SignIn extends React.Component {
     );
   }
 }
-SignUp.propTypes = {
-  registerUser: PropTypes.func.isRequired,
+SignIn.propTypes = {
+  loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -287,14 +205,11 @@ const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-// export default withRouter(
-//   connect(
-//     mapStateToProps,
-//     { registerUser }
-//   )(withStyles(loginPageStyle)(SignUp))
-// );
 
-let styledComponent = withStyles(loginPageStyle)(SignUp);
-let connectedComponent = connect(mapStateToProps,{ registerUser })(styledComponent);
-let routedComponent = withRouter(connectedComponent);
-export default routedComponent
+
+  export default withRouter(
+    connect(
+      mapStateToProps,
+      { loginUser }
+    )(withStyles(loginPageStyle)(SignIn))
+  );
