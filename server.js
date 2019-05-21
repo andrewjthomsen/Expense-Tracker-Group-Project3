@@ -19,15 +19,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Passport middleware
-app.use(passport.initialize());
+// // Passport middleware
+// app.use(passport.initialize());
 
-// Passport config
-require("./config/passport")(passport);
+// // Passport config
+// require("./config/passport")(passport);
 
 // routes
 app.use("/api", expenseRoute);
-app.use("/user", userAPI);
+// app.use("/user", userAPI);
 
 // Bodyparser middleware
 app.use(

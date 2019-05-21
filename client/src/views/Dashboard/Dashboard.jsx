@@ -33,7 +33,6 @@ import DonutChart from "components/BarChart/PieChart.js";
 import BarChart from "components/BarChart/BarChart.js";
 import { groceries, server } from "variables/general.jsx";
 
-
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
 class Dashboard extends React.Component {
@@ -71,7 +70,7 @@ class Dashboard extends React.Component {
                     <Warning />
                   </Danger>
                   <a href="/admin/balance" onClick={e => e.preventDefault()}>
-                    Check Your Current Expenses 
+                    Check Your Current Expenses
                   </a>
                 </div>
               </CardFooter>
@@ -123,7 +122,7 @@ class Dashboard extends React.Component {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Card chart>
-              <CardHeader color='rose'>
+              <CardHeader color="rose">
                 <DonutChart />
                 <BarChart />
               </CardHeader>
@@ -157,14 +156,11 @@ class Dashboard extends React.Component {
                     <Tasks
                       checkedIndexes={[0, 3]}
                       tasksIndexes={[0, 1, 2, 3]}
-                      tasks={
-                        groceries
-
-                      }
+                      tasks={groceries}
                     />
                   )
                 },
-               
+
                 {
                   tabName: "Todo",
                   tabIcon: Spa,
@@ -184,23 +180,14 @@ class Dashboard extends React.Component {
               <ExpenseCardHeader color="primary">
                 {/* Append Current Expenses */}
 
-                <h4 className={classes.cardTitleWhite}><b>Expenses</b></h4>
+                <h4 className={classes.cardTitleWhite}>
+                  <b>Expenses</b>
+                </h4>
                 <p className={classes.cardCategoryWhite}>
-                  Your Current Entries 
+                  Your Current Entries
                 </p>
               </ExpenseCardHeader>
-              <ExpenseCardBody>
-                <Table
-                  tableHeaderColor="warning"
-                  tableHead={["ID", "Items", "Paid"]}
-                  tableData={[
-                    ["1", "Rice", "$36.00"],
-                    ["2", "OJ", "$2.00"],
-                    ["3", "Apples", "$5.00"],
-                    ["4", "Paper Towels", "$38"]
-                  ]}
-                />
-              </ExpenseCardBody>
+              <ExpenseCardBody />
             </ExpenseCard>
           </GridItem>
         </GridContainer>

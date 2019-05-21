@@ -13,8 +13,8 @@ import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 
-import routes from "routes.js";
-import API from '../routes/api/api';
+import routes from "../routes.js";
+// import API from '../../../routes/api/api';
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
@@ -32,16 +32,16 @@ class Dashboard extends React.Component {
       mobileOpen: false,
       expenses: []
     };
-    this.refreshExpenses = this.refreshExpenses.bind(this);
+    // this.refreshExpenses = this.refreshExpenses.bind(this);
   }
-  refreshExpenses = function() {
-    API.getExpenses().then((response) => {
-      this.setState({
-        expenses: response
-      });
-      console.log('Refreshed expenses.');
-    });
-  };
+  // refreshExpenses = function() {
+  //   API.getExpenses().then((response) => {
+  //     this.setState({
+  //       expenses: response
+  //     });
+  //     console.log('Refreshed expenses.');
+  //   });
+  // };
   handleImageClick = image => {
     this.setState({ image: image });
   };
@@ -71,7 +71,7 @@ class Dashboard extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
-    this.refreshExpenses();
+    // this.refreshExpenses();
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
