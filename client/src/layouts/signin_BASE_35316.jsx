@@ -1,9 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import classnames from "classnames";
-import { registerUser } from "../actions/authActions"
-import { withRouter } from "react-router-dom"
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -28,72 +23,25 @@ import loginPageStyle from "../assets/jss/homepage/components/loginPageStyle";
 
 import image from "../assets/img/bkgrd.jpg";
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      password2: "",
-      errors: {}
+      cardAnimaton: "cardHidden"
     };
   }
-  
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-  onSubmit = e => {
-    e.preventDefault();
-    const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2
-
-    };
-    console.log(newUser)
-    this.props.registerUser(newUser, this.props.history);
-  };
-
-
   componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("../../admin/dashboard");
-    }
+    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
+    setTimeout(
+      function() {
+        this.setState({ cardAnimaton: "" });
+      }.bind(this),
+      700
+    );
   }
-  componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.isAuthenticated) {
-			this.props.history.push("/admin/dashboard"); // push user to dashboard when they login
-		}
-		if (nextProps.errors) {
-			this.setState({
-				errors: nextProps.errors
-			});
-		}
-	}
-	onChange = e => {
-		this.setState({ [e.target.id]: e.target.value });
-	};
-	onSubmit = e => {
-		e.preventDefault();
-		const userData = {
-			email: this.state.email,
-			password: this.state.password
-		};
-		this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
-	};
-	componentDidMount() {
-		// If logged in and user navigates to Register page, should redirect them to dashboard
-		if (this.props.auth.isAuthenticated) {
-			this.props.history.push("/admin/dashboard");
-		}
-	}
   render() {
     const { classes, ...rest } = this.props;
-    const { errors } = this.state;
     return (
       <div>
         <Header
@@ -115,11 +63,8 @@ class SignIn extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form action="#" method="post"
-                    noValidate
-                    className={classes.form}
-                    onSubmit={this.onSubmit}>
-                    <CardHeader className={classes.cardHeader}>
+                  <form className={classes.form}>
+                    <CardHeader  className={classes.cardHeader}>
                       <h1>SIGN UP</h1>
                       <div className={classes.socialLine}>
                         <Button
@@ -155,28 +100,23 @@ class SignIn extends React.Component {
                     <CardBody>
                       <CustomInput
                         labelText="Name..."
-                      
+                        id="first"
                         formControlProps={{
                           fullWidth: true
                         }}
-                       
-                        onChange={this.onChange}
-                        value={this.state.name}
-                        error={errors.name}
-                        id="name"
-                        type="text"
-                      
-                        placeholder="Username"
-                        required fullWidth
-                        className={"text " + classnames("", {
-                          invalid: errors.name 
-                        })}
+                        inputProps={{
+                          type: "text",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <People className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
                       />
-                      <span className="red-text">{errors.name}
-                      </span>
                       <CustomInput
                         labelText="Email..."
-                          formControlProps={{
+                        id="email"
+                        formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
@@ -187,23 +127,10 @@ class SignIn extends React.Component {
                             </InputAdornment>
                           )
                         }}
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                     
-                        type="email"
-                       
-                        placeholder="Email"
-                        required fullWidth
-                        className={"text " + classnames("", {
-                          invalid: errors.email
-                        })}
                       />
-                      <span className="red-text">{errors.email}
-                      </span>
                       <CustomInput
                         labelText="Password"
-                        id="password"
+                        id="pass"
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -215,24 +142,14 @@ class SignIn extends React.Component {
                                 lock_outline
                               </Icon>
                             </InputAdornment>
+
                           )
                         }}
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                     
-                        type="password"
-                        
-                        placeholder="Password"
-                        required fullWidth
-                        className={"text " + classnames("", {
-                          invalid: errors.password
-                        })}
                       />
 
-                      <CustomInput
+                    <CustomInput
                         labelText="Confirm Password"
-                       
+                        id="pass"
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -244,26 +161,14 @@ class SignIn extends React.Component {
                                 lock_outline
                               </Icon>
                             </InputAdornment>
-
+                            
                           )
                         }}
-                        onChange={this.onChange}
-                        value={this.state.password2}
-                        error={errors.password2}
-                        id="password2"
-                        type="password"
-                       
-                        placeholder="Confirm Password"
-                        required fullWidth
-                        className={classnames("", {
-                          invalid: errors.password2
-                        })}
                       />
-                      <span className="red-text">{errors.password2}</span>
+
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg"
-                      type="submit" value="SIGN IN">
+                      <Button simple color="primary" size="lg">
                         Get started
                       </Button>
                     </CardFooter>
@@ -272,29 +177,11 @@ class SignIn extends React.Component {
               </GridItem>
             </GridContainer>
           </div>
-          <Footer whiteFont />
+          <Footer />
         </div>
       </div>
     );
   }
 }
-SignUp.propTypes = {
-  registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-};
-const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
-});
-// export default withRouter(
-//   connect(
-//     mapStateToProps,
-//     { registerUser }
-//   )(withStyles(loginPageStyle)(SignUp))
-// );
 
-let styledComponent = withStyles(loginPageStyle)(SignUp);
-let connectedComponent = connect(mapStateToProps,{ registerUser })(styledComponent);
-let routedComponent = withRouter(connectedComponent);
-export default routedComponent
+export default withStyles(loginPageStyle)(SignUp);

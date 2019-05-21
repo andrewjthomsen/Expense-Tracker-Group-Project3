@@ -84,14 +84,16 @@ class SignUp extends React.Component {
                     invalid: errors.email
                   })}
                 />
+                <label htmlFor="email">Email</label>
+                <span className="red-text">{errors.email}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
                   id="password"
                   type="password"
-                  className="text"
-                  placeholder="Password"
-                  required fullWidth
                   className={classnames("", {
                     invalid: errors.password
                   })}

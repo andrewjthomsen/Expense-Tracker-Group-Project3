@@ -21,14 +21,6 @@ mongoose.connect(db.mongoURI, { useNewUrlParser: true }).then(
     console.log("Can not connect to the database" + err);
   }
 );
-// mongoose.connect(db2.DB, { useNewUrlParser: true }).then(
-//   () => {
-//     console.log("Database is connected");
-//   },
-//   err => {
-//     console.log("Can not connect to the database" + err);
-//   }
-// );
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));

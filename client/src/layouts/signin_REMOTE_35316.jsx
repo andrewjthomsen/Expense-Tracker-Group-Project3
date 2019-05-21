@@ -28,7 +28,7 @@ import loginPageStyle from "../assets/jss/homepage/components/loginPageStyle";
 
 import image from "../assets/img/bkgrd.jpg";
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -64,33 +64,6 @@ class SignIn extends React.Component {
       this.props.history.push("../../admin/dashboard");
     }
   }
-  componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.isAuthenticated) {
-			this.props.history.push("/admin/dashboard"); // push user to dashboard when they login
-		}
-		if (nextProps.errors) {
-			this.setState({
-				errors: nextProps.errors
-			});
-		}
-	}
-	onChange = e => {
-		this.setState({ [e.target.id]: e.target.value });
-	};
-	onSubmit = e => {
-		e.preventDefault();
-		const userData = {
-			email: this.state.email,
-			password: this.state.password
-		};
-		this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
-	};
-	componentDidMount() {
-		// If logged in and user navigates to Register page, should redirect them to dashboard
-		if (this.props.auth.isAuthenticated) {
-			this.props.history.push("/admin/dashboard");
-		}
-	}
   render() {
     const { classes, ...rest } = this.props;
     const { errors } = this.state;
@@ -176,7 +149,8 @@ class SignIn extends React.Component {
                       </span>
                       <CustomInput
                         labelText="Email..."
-                          formControlProps={{
+                        id="email"
+                        formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
@@ -215,6 +189,7 @@ class SignIn extends React.Component {
                                 lock_outline
                               </Icon>
                             </InputAdornment>
+
                           )
                         }}
                         onChange={this.onChange}
