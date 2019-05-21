@@ -1,4 +1,9 @@
 import React from "react";
+import { loginUser } from "../actions/authActions";
+import classnames from "classnames";
+import { connect } from "react-redux";
+import PropTypes from "prop-types"
+import { withRouter } from "react-router-dom"
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -28,18 +33,38 @@ class SignIn extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
-    };
+      email: "",
+      password: "",
+      errors: {}
+    }
   }
-  componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    setTimeout(
-      function () {
-        this.setState({ cardAnimaton: "" });
-      }.bind(this),
-      700
-    );
-  }
+  componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			this.props.history.push("/admin/dashboard"); // push user to dashboard when they login
+		}
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			});
+		}
+	}
+	onChange = e => {
+		this.setState({ [e.target.id]: e.target.value });
+	};
+	onSubmit = e => {
+		e.preventDefault();
+		const userData = {
+			email: this.state.email,
+			password: this.state.password
+		};
+		this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
+	};
+	componentDidMount() {
+		// If logged in and user navigates to Register page, should redirect them to dashboard
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push("/admin/dashboard");
+		}
+	}
   render() {
     const { classes, ...rest } = this.props;
     const { errors } = this.state;
@@ -64,7 +89,7 @@ class SignIn extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form action="#" method="post"
+                  <form
                     noValidate className={classes.form}
                     onSubmit={this.onSubmit}>
 
@@ -104,27 +129,17 @@ class SignIn extends React.Component {
                     </CardHeader>
                     <p className={classes.divider}></p>
                     <CardBody>
-
+               
                       <CustomInput
                         labelText="Email..."
-                        id="email"
-                        formControlProps={{
+                          formControlProps={{
                           fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
                         }}
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
                         id="email"
                         type="email"
-                        className="text"
                         placeholder="Email"
                         required fullWidth
                         className={classnames("", {
@@ -135,9 +150,11 @@ class SignIn extends React.Component {
                         {errors.email}
                         {errors.emailnotfound}
                       </span>
+                    
+                     
                       <CustomInput
                         labelText="Password"
-                        id="pass"
+                        id="password"
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -149,29 +166,22 @@ class SignIn extends React.Component {
                                 lock_outline
                               </Icon>
                             </InputAdornment>
-
                           )
                         }}
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
-                        id="password"
                         type="password"
-                        className="text"
                         placeholder="Password"
                         required fullWidth
-                        className={classnames("", {
-                          invalid: errors.password || errors.passwordincorrect
+                        className={"text " + classnames("", {
+                          invalid: errors.password
                         })}
                       />
-
-                    <span className="red-text">
-                      {errors.password}
-                      {errors.passwordincorrect}
-                    </span>
-                    </CardBody>
+                   </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
+                      <Button simple color="primary" size="lg"
+                      input type="submit" value="SIGN IN">
                         Get started
                       </Button>
                     </CardFooter>
@@ -187,16 +197,19 @@ class SignIn extends React.Component {
   }
 }
 SignIn.propTypes = {
-	loginUser: PropTypes.func.isRequired,
-	auth: PropTypes.object.isRequired,
-	errors: PropTypes.object.isRequired
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-	auth: state.auth,
-	errors: state.errors
+  auth: state.auth,
+  errors: state.errors
 });
-export default connect(
-	mapStateToProps,
-	{ loginUser }
-)(SignIn)
-(withStyles(loginPageStyle));
+
+
+  export default withRouter(
+    connect(
+      mapStateToProps,
+      { loginUser }
+    )(withStyles(loginPageStyle)(SignIn))
+  );

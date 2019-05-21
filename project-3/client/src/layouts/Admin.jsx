@@ -14,7 +14,7 @@ import Sidebar from "components/Sidebar/Sidebar.jsx";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 
 import routes from "routes.js";
-import API from '../utils/api';
+import API from '../routes/api/api';
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
       image: image,
       color: "blue",
       hasImage: true,
-      fixedClasses: "dropdown show",
+      fixedClasses: "dropdown",
       mobileOpen: false,
       expenses: []
     };

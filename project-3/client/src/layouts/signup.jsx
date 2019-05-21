@@ -1,4 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import classnames from "classnames";
+import { registerUser } from "../actions/authActions"
+import { withRouter } from "react-router-dom"
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -28,17 +33,36 @@ class SignUp extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {}
     };
   }
+  
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+
+    };
+    console.log(newUser)
+    this.props.registerUser(newUser, this.props.history);
+  };
+
+
   componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    setTimeout(
-      function () {
-        this.setState({ cardAnimaton: "" });
-      }.bind(this),
-      700
-    );
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("../../admin/dashboard");
+    }
   }
   render() {
     const { classes, ...rest } = this.props;
@@ -104,28 +128,21 @@ class SignUp extends React.Component {
                     <CardBody>
                       <CustomInput
                         labelText="Name..."
-                        id="first"
+                      
                         formControlProps={{
                           fullWidth: true
                         }}
-                        inputProps={{
-                          type: "text",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
+                       
                         onChange={this.onChange}
                         value={this.state.name}
                         error={errors.name}
                         id="name"
                         type="text"
-                        className="text"
+                      
                         placeholder="Username"
                         required fullWidth
-                        className={classnames("", {
-                          invalid: errors.name
+                        className={"text " + classnames("", {
+                          invalid: errors.name 
                         })}
                       />
                       <span className="red-text">{errors.name}
@@ -147,12 +164,12 @@ class SignUp extends React.Component {
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
-                        id="email"
+                     
                         type="email"
-                        className="text"
+                       
                         placeholder="Email"
                         required fullWidth
-                        className={classnames("", {
+                        className={"text " + classnames("", {
                           invalid: errors.email
                         })}
                       />
@@ -160,7 +177,7 @@ class SignUp extends React.Component {
                       </span>
                       <CustomInput
                         labelText="Password"
-                        id="pass"
+                        id="password"
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -178,19 +195,19 @@ class SignUp extends React.Component {
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
-                        id="password"
+                     
                         type="password"
-                        className="text"
+                        
                         placeholder="Password"
                         required fullWidth
-                        className={classnames("", {
+                        className={"text " + classnames("", {
                           invalid: errors.password
                         })}
                       />
 
                       <CustomInput
                         labelText="Confirm Password"
-                        id="pass"
+                       
                         formControlProps={{
                           fullWidth: true
                         }}
@@ -210,7 +227,7 @@ class SignUp extends React.Component {
                         error={errors.password2}
                         id="password2"
                         type="password"
-                        className="text"
+                       
                         placeholder="Confirm Password"
                         required fullWidth
                         className={classnames("", {
@@ -220,7 +237,8 @@ class SignUp extends React.Component {
                       <span className="red-text">{errors.password2}</span>
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
+                      <Button simple color="primary" size="lg"
+                      type="submit" value="SIGN IN">
                         Get started
                       </Button>
                     </CardFooter>
@@ -244,8 +262,14 @@ const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(SignUp))(withStyles
-  (loginPageStyle)(SignUp));
+// export default withRouter(
+//   connect(
+//     mapStateToProps,
+//     { registerUser }
+//   )(withStyles(loginPageStyle)(SignUp))
+// );
+
+let styledComponent = withStyles(loginPageStyle)(SignUp);
+let connectedComponent = connect(mapStateToProps,{ registerUser })(styledComponent);
+let routedComponent = withRouter(connectedComponent);
+export default routedComponent
