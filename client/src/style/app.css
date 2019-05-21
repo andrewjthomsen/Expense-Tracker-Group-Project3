@@ -1,0 +1,51 @@
+* {
+    outline: transparent!important;
+    text-decoration: none!important;
+}
+
+body {
+    padding-top: 77px;
+}
+
+/* CSS for expense form component */
+.form-container{
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .expense-h1 {
+        padding: 30px;
+    }
+.textform {
+    display: inline !important;
+    font-display: black;
+    place-content: black;
+    text-align: center !important;
+    height: 45px !important;
+    /* width: 600px; */
+    color: black !important;
+}
+select{
+    text-align: center !important;
+}
+button {
+     border-radius: 5px;
+    padding: 8px 25px 8px 25px;
+    width: 100%;
+    height: 45px;
+    background:grey;
+    border: 0;
+    color: white !important;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    height: 36px !important;
+    width: 600px;
+}
+.expenseform {
+    height: 64px !important;
+    width: 600px !important;
+}
+.signin{
+    height: 36px !important;
+    width: 400px !important;
+}
