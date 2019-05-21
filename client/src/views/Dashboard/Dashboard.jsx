@@ -11,12 +11,9 @@ import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Check from "@material-ui/icons/Check";
 import Spa from "@material-ui/icons/Spa";
-
-import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
-import Table from "components/Table/Table.jsx";
 import Tasks from "components/Tasks/Tasks.jsx";
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import Danger from "components/Typography/Danger.jsx";
@@ -50,7 +47,7 @@ class Dashboard extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <GridContainer>
+        <GridContainer style={{overflowY: "scroll!important"}}>
           <GridItem xs={12} sm={6} md={4}>
             <Card>
               <CardHeader color="warning" stats icon>

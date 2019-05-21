@@ -23,9 +23,9 @@ import loginPageStyle from "../assets/jss/homepage/components/loginPageStyle";
 import image from "../assets/img/bkgrd.jpg";
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  //   constructor(props) {
+  //     super(props);
+  //   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     setTimeout(
@@ -59,10 +59,7 @@ class SignIn extends React.Component {
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
-
-                    <CardHeader 
-                    className={classes.cardHeader}>
-
+                    <CardHeader className={classes.cardHeader}>
                       <h1>SIGN IN</h1>
                       <div className={classes.socialLine}>
                         <Button
@@ -94,9 +91,8 @@ class SignIn extends React.Component {
                         </Button>
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}></p>
+                    <p className={classes.divider} />
                     <CardBody>
- 
                       <CustomInput
                         labelText="Email..."
                         id="email"
@@ -126,12 +122,9 @@ class SignIn extends React.Component {
                                 lock_outline
                               </Icon>
                             </InputAdornment>
-
                           )
                         }}
                       />
-
-
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
