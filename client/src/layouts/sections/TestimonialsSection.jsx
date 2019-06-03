@@ -81,7 +81,7 @@ class TestimonialsSection extends React.Component {
                   <p className={classes.description} style={{ color: '#fffde7' }}>
                   It looks like you guys have a great service going. 
                   I wish you the very best of luck, 
-                  and I'm excited to use Mint to help me get my financial life in order. 
+                  and I'm excited to use Affluent to help me get my financial life in order. 
                   I look forward to using your service. 
                   Thanks for all your hard work!
                   </p>
