@@ -33,7 +33,7 @@
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mathjs": "^5.9.0",
+    "mathjs": "^7.5.1",
     "mongoose": "^5.5.5",
     "node-sass": "^4.12.0",
     "passport": "^0.4.0",
